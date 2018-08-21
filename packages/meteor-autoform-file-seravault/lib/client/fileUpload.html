@@ -1,0 +1,39 @@
+<template name="afFileUpload">
+  <input value="{{fileId}}" type="hidden" {{this.atts}}>
+  {{#with uploadedFile}}
+    {{#if previewTemplate}}
+      {{>Template.dynamic template=previewTemplate}}
+    {{else}}
+      <div>
+        {{> uploadFileDemo}}
+      </div>
+      <a data-reset-file href="#" style="display:none">Reset</a>
+    {{/if}}
+  {{else}}
+    {{#if uploadTemplate}}
+      {{>Template.dynamic template=uploadTemplate data=currentUpload}}
+    {{else}}
+      {{#with currentUpload}}        
+        {{_"Encrypting"}} <b>{{file.name}}</b>:
+          <div class="progress-widget data-usage">
+            <div class="progress-data">
+              <span class="progress-value">{{encryptProgress}}%</span>
+              <span class="name">{{_ "EncryptionProgress"}}</span>
+            </div>
+            <div class="progress">
+              <div style="width:{{encryptProgress}}%;" class="progress-bar progress-bar-primary"></div>
+            </div>
+            <div class="progress-data">
+              <span class="progress-value">{{progress.get}}%</span>
+              <span class="name">{{_ "UploadProgress"}}</span>
+            </div>
+            <div class="progress">
+              <div style="width:{{progress.get}}%;" class="progress-bar progress-bar-primary"></div>
+            </div>
+          </div>            
+      {{else}}
+        <input data-files-collection-upload class="form-control af-file-upload-capture" type="file" />
+      {{/with}}
+    {{/if}}
+  {{/with}}
+</template>

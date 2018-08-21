@@ -1,0 +1,73 @@
+<template name='contactHome'>
+  <div class="row">
+    <div class="col-lg-4 col-sm-6">
+      <div class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth-1 contacts">
+        <!-- Card media-->
+        <div class="pmd-card-media">
+          <!-- Card media heading -->
+          <div class="media-body">
+            <h2 class="pmd-card-title-text">{{_ "Contacts"}}</h2>
+          </div>
+          <!-- Card media image -->
+          <div class="media-right media-middle">
+            <a href="javascript:void(0);">
+              <i class="media-left media-middle material-icons pmd-lg">contacts</i>
+            </a>
+          </div>
+        </div>
+        <div class="pmd-card-body">
+          <h1 class="text-center font-xl">{{countContacts}}</h1>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-6">
+      <div class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth-1 pending">
+        <!-- Card media-->
+        <div class="pmd-card-media">
+          <!-- Card media heading -->
+          <div class="media-body">
+            <h2 class="pmd-card-title-text">{{_ "PendingInvites"}}</h2>
+          </div>
+          <!-- Card media image -->
+          <div class="media-right media-middle">
+            <a href="javascript:void(0);">
+              <i class="media-left media-middle material-icons pmd-lg">keyboard_arrow_left</i>
+            </a>
+          </div>
+        </div>
+        <div class="pmd-card-body">
+          <h1 class="text-center font-xl">{{countPending}}</h1>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-sm-6">
+      <div class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth-1 sent">
+        <!-- Card media-->
+        <div class="pmd-card-media">
+          <!-- Card media heading -->
+          <div class="media-body">
+            <h2 class="pmd-card-title-text">{{_ "SentInvites"}}</h2>
+          </div>
+          <!-- Card media image -->
+          <div class="media-right media-middle">
+            <a href="javascript:void(0);">
+              <i class="media-left media-middle material-icons pmd-lg">keyboard_arrow_right</i>
+            </a>
+          </div>
+        </div>
+        <div class="pmd-card-body">
+          <h1 class="text-center font-xl">{{countSent}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+  .pmd-card:hover{
+    cursor: pointer; cursor: hand;
+  }
+  .font-xl{
+    font-size: 80px;
+  }
+  </style>
+</template>

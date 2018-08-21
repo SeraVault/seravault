@@ -1,0 +1,221 @@
+.main-content {
+  //background: #395781;
+  padding-left: 17px;
+  padding-right: 17px;
+  padding-top: 8px; //padding-bottom: 10px;
+}
+
+.card-sv {
+  margin-bottom: 10px;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.arrange-items-sv {
+  margin-top: -10px;
+  margin-bottom: 5px;
+}
+
+.avatar-round {
+  border-radius: 50%;
+}
+
+.navbar-light .navbar-toggler-icon {
+  background-color: #FFF;
+}
+
+.splash-container .card .card-header {
+  background: #1F2F46;
+}
+
+.seravault-background-color {
+  background: #1F2F46;
+}
+
+.seravault-login-header {
+  background: #1F2F46;
+  padding: 20px;
+  margin: 0;
+  color: #FFF;
+}
+
+.seravault-text-white: {
+  color: #FFF;
+}
+
+.leftmenu-indent: {
+  padding-left: 20px;  !important
+}
+
+.splash-description {
+  color: #fff;
+  line-height: 30px;
+  font-size: 1em;
+}
+
+.be-nosidebar-left .be-top-header .be-navbar-header .navbar-brand {
+  line-height: 60px;
+  height: 60px;
+  width: 300px;
+  background-image: url(/img/seravault_logo.svg);
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  padding: 0 5px;
+  margin: 0;
+  display: block;
+  background-color: #1F2F46;
+}
+
+.be-top-header .be-right-navbar {
+  background-color: #1F2F46;
+}
+
+.be-top-header .be-navbar-header .navbar-brand {
+  line-height: 60px;
+  height: 60px;
+  width: 300px;
+  background-image: url(/img/seravault_logo.svg);
+  background-repeat: no-repeat;
+  background-position: 5px center;
+  padding: 0 5px;
+  margin: 0;
+  display: block;
+}
+
+.be-top-header .page-title {
+  color: #FFF;
+}
+
+.be-icons-nav>li.dropdown>a .icon {
+  color: #FFF;
+}
+
+.card-title {
+  margin-top: -10px;
+  margin-bottom: 0px;
+}
+
+.home-page-logo {
+  display: block;
+  width: 70%;
+  height: auto;
+  margin-top: 0;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.seravault-gradient-background {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#007bf7+0,1f2f46+28,1f2f46+73,1f2f46+73,007bf7+100 */
+  background: #007bf7;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #007bf7 0%, #1f2f46 28%, #1f2f46 73%, #1f2f46 73%, #007bf7 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #007bf7 0%, #1f2f46 28%, #1f2f46 73%, #1f2f46 73%, #007bf7 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #007bf7 0%, #1f2f46 28%, #1f2f46 73%, #1f2f46 73%, #007bf7 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007bf7', endColorstr='#007bf7', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+
+.seravault-gradient-free- {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#007bf7+0,1f2f46+28,1f2f46+73,1f2f46+73,007bf7+100 */
+  background: #007bf7;
+  /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #007bf7 0%, #1f2f46 28%, #1f2f46 73%, #1f2f46 73%, #007bf7 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #007bf7 0%, #1f2f46 28%, #1f2f46 73%, #1f2f46 73%, #007bf7 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #007bf7 0%, #1f2f46 28%, #1f2f46 73%, #1f2f46 73%, #007bf7 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#007bf7', endColorstr='#007bf7', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+
+.btn-outline-success {
+  color: #29c272;
+  background-color: transparent;
+  background-image: none;
+  border-color: #29c272;
+}
+
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #29c272;
+  border-color: #29c272;
+}
+
+.btn-outline-success:focus,
+.btn-outline-success.focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(41, 194, 114, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(41, 194, 114, 0.5);
+}
+
+.btn-outline-success.disabled,
+.btn-outline-success:disabled {
+  color: #29c272;
+  background-color: transparent;
+}
+
+.btn-outline-success:not(:disabled):not(.disabled):active,
+.btn-outline-success:not(:disabled):not(.disabled).active,
+.show>.btn-outline-success.dropdown-toggle {
+  color: #fff;
+  background-color: #29c272;
+  border-color: #29c272;
+}
+
+.btn-outline-success:not(:disabled):not(.disabled):active:focus,
+.btn-outline-success:not(:disabled):not(.disabled).active:focus,
+.show>.btn-outline-success.dropdown-toggle:focus {
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(41, 194, 114, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(41, 194, 114, 0.5);
+}
+
+.btn-huge {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 24px;
+}
+
+.arrange-items {
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+
+.hover-hand:hover {
+  cursor: pointer;
+}
+
+.font-xl {
+  font-size: 2em;
+}
+
+.be-left-sidebar .sidebar-elements .divider {
+  padding: 0;
+  padding-left: 20px;
+}
+
+.open-folder {
+  cursor: pointer;
+}
+
+.open-or-drag {
+  cursor: pointer;
+}
+
+.hover-folder-link {
+  background: #1F2F46;
+  color: white!;
+}
+
+.pull-top-right {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.toast {
+  opacity: 1 !important;
+}

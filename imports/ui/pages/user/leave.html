@@ -1,0 +1,37 @@
+<template name="App_leave">
+  <div id="content" class="pmd-content content-area" style="height:100vh;">
+    <div class="container-fluid">
+      <div class="pmd-card pmd-card-default pmd-z-depth-1" style="margin: auto; max-width:600px;">
+        <div class="login-card">
+          <div class="pmd-card-title text-center">
+            <div class="loginlogo background-navy">
+              <a href={{pathFor 'App.home'}}><img src="/img/seravault_logo.svg" alt="Logo"></a>
+              <h1 class="text-center"><b class="color-white">{{_ "Slogan"}}</b></h1>
+            </div>
+          </div>
+          <div class="pmd-card-body">
+            <h1>{{_ "ThanksForTrying"}}</h1>
+            <br>
+            <p>{{_ "RemovingItems"}}</p>
+            <div class="progress-rounded progress pmd-progress"><div class="progress-bar progress-bar-success remove-items"></div></div>
+            <p>{{_ "RemovingContacts"}}</p>
+            <div class="progress-rounded progress pmd-progress"><div class="progress-bar progress-bar-success remove-contacts"></div></div>
+            <p>{{_ "RemovingKeys"}}</p>
+            <div class="progress-rounded progress pmd-progress"><div class="progress-bar progress-bar-success remove-keys"></div></div>
+            <hr>
+
+            <div id="done-remove" style="visibility:hidden;">
+              <h1>{{_ "ThanksForTryingMessage"}}</h1>
+              <br>
+              <div class="form-group pmd-textfield email">
+                <label for="feedback" class="control-label"><b>{{_ "ThanksForTryingFeedback"}}</b></label>
+                <textarea id="feedback" required class="form-control"></textarea>
+              </div>
+              <button type="button" id="sendfeedback" class="btn btn-primary btn-block">{{_ "SendFeedback"}}</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

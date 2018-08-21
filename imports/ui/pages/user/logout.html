@@ -1,0 +1,13 @@
+<template name="App_user_logout">
+
+{{#if currentUser}}
+<h2>Logging out...</h2>
+{{#else}}
+<h1>You are now logged out</h1>
+
+<a class="btn btn-lg pmd-btn-raised btn-primary btn-block pmd-ripple-effect login" href={{pathFor 'App.login'}}>Login</a>
+{{/if}}
+
+
+
+</template>

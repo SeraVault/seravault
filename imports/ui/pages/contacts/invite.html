@@ -1,0 +1,34 @@
+<template name="App_contact_invite">
+  <div class="pmd-card pmd-card-media-inline pmd-card-default pmd-z-depth-1">
+
+    <!-- Card media-->
+    <div class="pmd-card-media">
+      <!-- Card media heading -->
+      <div class="media-body">
+        <h2 class="pmd-card-title-text">{{_ "inviteContact"}}</h2>
+        <hr>
+        <p>{{_ "inviteExplanation"}}</p>
+          <p>{{_ "inviteWarning"}}</p>
+          <div class="form-group pmd-textfield">
+            <label for="sharing-code" class="control-label">
+              {{_ "SharingCode"}}
+            </label>
+            <input class="form-control sharing-code">
+          </div>
+          <div class="form-group pmd-textfield">
+            <label for="sharing-code" class="control-label">
+              {{_ "Note"}}
+            </label>
+            <input type="textarea" class="form-control note">
+          </div>
+        </div>
+
+      </div>
+      <!-- Card action -->
+      <div class="pmd-card-actions">
+        <button type="button" class="invite btn pmd-btn-raised pmd-ripple-effect btn-primary">{{_ "Invite"}}</button>
+        <a href="javascript:history.back()" class="btn pmd-btn-raised pmd-ripple-effect btn-default" type="button">{{_ "Cancel"}}</a>
+      </div>
+    </div>
+
+  </template>

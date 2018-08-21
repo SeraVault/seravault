@@ -1,0 +1,32 @@
+<template name="App_ui_home_container">
+  <nav class="navbar navbar-expand-lg navbar-light seravault-background-color fixed-top ">
+    <a class="navbar-brand" href="/"><img src="/img/seravault_logo.svg" alt="logo" width="100%" class="logo-img" style="margin-top: -5px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">        
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <a href={{pathFor 'App.login'}} class="btn btn-lg btn-outline-success my-2 my-sm-0" style="margin-right:10px;">{{_ "Login"}}</a>
+        <a href={{pathFor 'App.register'}} class="btn btn-lg btn-outline-success my-2 my-sm-0" style="margin-right:10px;">{{_ "Register"}}</a>
+        <div class="dropdown">
+          <button class="btn btn-lg btn-outline-success dropdown-toggle" type="button" id="language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{getLanguage}}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="language">
+            <a href="" class="dropdown-item" id="english">English</a>
+            <a href="" class="dropdown-item" id="french">Français</a>
+            <a href="" class="dropdown-item" id="spanish">Español</a>
+            <a href="" class="dropdown-item" id="chinese">中文</a>
+            <a href="" class="dropdown-item" id="danish">Dansk</a>
+            <a href="" class="dropdown-item" id="dutch">Nederlands</a>
+            <a href="" class="dropdown-item" id="german">Deutsche</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nav>
+  {{> Template.dynamic template=content}}
+</template>

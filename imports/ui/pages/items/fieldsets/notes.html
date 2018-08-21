@@ -1,0 +1,10 @@
+<template name="App_notes_fieldset">
+    <!--fields moved to main template-->
+    <div class="form-group pmd-textfield">
+      <label for="note" class="control-label">
+        <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+        {{_ "Notes"}}
+      </label>
+      {{>afFieldInput name="notes"}}
+    </div>
+</template>

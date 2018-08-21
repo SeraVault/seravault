@@ -1,0 +1,146 @@
+<template name="App_dashboard">
+  <div class="row">
+    <div class="col-lg-6 col-md-12">
+      <div class="card card-border-color seravault-background-color">
+        <div class="card-header card-header-divider">
+          <h2 class="white">{{_ "Documents"}}
+            <span class="icon mdi {{getTypeIcon 'note'}} pull-right"></span>
+          </h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="card card-default dashboard-sub accounts">
+                <div class="card-header text-center">
+                  <h2>{{_ "Accounts"}}</h2>
+                </div>
+                <div class="card-body text-center">
+                  <h1 class="text-center font-xl">{{countAccounts}}</h1>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="pmd-card pmd-card-default pmd-z-depth-1 dashboard-sub notes">
+                <div class="pmd-card-title text-center">
+                  <h2>{{_ "Notes"}}</h2>
+                  <span class="pmd-card-subtitle-text"></span>
+                </div>
+                <div class="pmd-card-body text-center">
+                  <h1 class="text-center font-xl">{{countNotes}}</h1>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="pmd-card pmd-card-default pmd-z-depth-1 dashboard-sub keys">
+                <div class="pmd-card-title text-center">
+                  <h2>{{_ "Keys"}}</h2>
+                  <span class="pmd-card-subtitle-text"></span>
+                </div>
+                <div class="pmd-card-body text-center">
+                  <h1 class="text-center font-xl">{{countKeys}}</h1>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="pmd-card pmd-card-default pmd-z-depth-1 dashboard-sub messages">
+                <div class="pmd-card-title text-center">
+                  <h2>{{_ "Messages"}}</h2>
+                  <span class="pmd-card-subtitle-text"></span>
+                </div>
+                <div class="pmd-card-body text-center">
+                  <h1 class="text-center font-xl">{{countMessages}}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-6 col-sm-12">
+      <div class="card card-border-color seravault-background-color">
+        <div class="card-header card-header-divider">
+          <h2>{{_ "Sharing"}}
+            <span class="icon mdi mdi-share pull-right"></span>
+          </h2>
+        </div>
+        <div class="pmd-card-body">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="pmd-card pmd-card-default pmd-z-depth-1 dashboard-sub contacts">
+                <div class="pmd-card-title text-center">
+                  <h2>{{_ "Contacts"}}</h2>
+                  <span class="pmd-card-subtitle-text"></span>
+                </div>
+                <div class="pmd-card-body text-center">
+                  <h1 class="text-center font-xl">{{countContacts}}</h1>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pmd-card pmd-card-default pmd-z-depth-1 dashboard-sub pending">
+                <div class="pmd-card-title text-center">
+                  <h3>{{_ "recievedInvites"}}</h3>
+                  <span class="pmd-card-subtitle-text"></span>
+                </div>
+                <div class="pmd-card-body text-center">
+                  <h1 class="text-center font-xl">{{countPending}}</h1>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="pmd-card pmd-card-default pmd-z-depth-1 dashboard-sub invites-sent">
+                <div class="pmd-card-title text-center">
+                  <h3>{{_ "sentInvites"}}</h3>
+                  <span class="pmd-card-subtitle-text"></span>
+                </div>
+                <div class="pmd-card-body text-center">
+                  <h1 class="text-center font-xl">{{countSent}}</h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+      <div class="card card-border-color seravault-background-color">
+        <div class="card-header card-header-divider">
+          <h2>{{_ "Profile"}}
+            <span class="icon mdi mdi-folder-person pull-right"></span>
+          </h2>
+        </div>
+        <div class="card-body">
+          <div class="row">
+          <div class="col-lg-6">
+            <div class="pmd-card pmd-card-default pmd-z-depth-1 dashboard-sub profile">
+              <div class="pmd-card-title text-center">
+                <h2>{{_ "SharingCode"}}</h2>
+                <span class="pmd-card-subtitle-text"></span>
+              </div>
+              <div class="pmd-card-body text-center">
+                <h1 class="text-center sharing-code">{{sharingCode}}&nbsp;<button class='btn pmd-ripple-effect btn-default pmd-btn-raised notification-trigger btn-vsm copy-sharing-code' data-clipboard-text='{{sharingCode}}' data-clipboard-action='copy' data-toggle="tooltip" data-placement="top" title={{_ "copyToClipboard"}}><i class="material-icons">content_copy</i></button></h1>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="pmd-card pmd-card-default pmd-z-depth-1 dashboard-sub profile">
+              <div class="pmd-card-title text-center">
+                <h2>{{_ "DisplayName"}}</h2>
+                <span class="pmd-card-subtitle-text"></span>
+              </div>
+              <div class="pmd-card-body text-center">
+                <h1 class="text-center">{{displayName}}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    h2 .white { color: #FFF; }
+  </style>
+</template>

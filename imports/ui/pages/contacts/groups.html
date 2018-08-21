@@ -1,0 +1,28 @@
+<template name="contactGroups">
+  <div class="pmd-card pmd-z-depth-1">
+    <div class="pmd-card-body">
+      <table id="groups" class="table pmd-table table-hover table-striped display responsive nowrap" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Contacts</th>
+            <th>Actions</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each contacts}}
+          <tr>
+            <td>{{contactDisplayName this.userId}}</td>
+            <td>{{this.title}}</td>
+            <td></td>
+            <td>{{this.status}}</td>
+            <td><button data-id={{this._id}} class="delete-contact btn btn-sm pmd-ripple-effect btn-primary pull-right">Delete Contact</button></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</template>

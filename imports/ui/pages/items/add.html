@@ -1,0 +1,68 @@
+<template name="App_items_add">
+  {{#autoForm collection="Items" id="insertItem" type="insert"}}
+  <div class="card card-border-color" style="border-top-color: {{getTypeColor itemType}};">
+    <div class="card-body">
+      <h1>{{_ "Add"}} {{itemTypeText}}<span class="icon mdi {{getTypeIcon itemType}} pull-right"></span></h1>
+      <div class="group-fields clearfix row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <fieldset>
+            <div class="form-group">
+              <label for="title" class="control-label">
+                {{_ "Title"}}
+              </label>
+              {{>afFieldInput name="title"}}
+              <span class="help-block">{{{afFieldMessage name="title"}}}</span>
+            </div>
+            {{#if equals itemType 'account'}}
+            {{> App_accounts_fieldset}}
+            {{/if}}
+            {{#if equals itemType 'note'}}
+            {{> App_notes_fieldset}}
+            {{/if}}
+            {{#if equals itemType 'key'}}
+            {{> App_keys_fieldset}}
+            {{/if}}
+            {{#if equals itemType 'file'}}
+            <div class="card card-contrast card-full-primary">
+              <div class="card-header">{{_ "saveBeforeUploadingFiles"}}</div>
+            </div>
+            {{/if}}
+            {{#if equals itemType 'folder'}}
+            {{> App_folders_fieldset}}
+            {{/if}}
+            {{#if equals itemType 'message'}}
+            {{> App_message_fieldset}}
+            {{/if}}
+            {{#if equals itemType 'help'}}
+            {{> App_help_fieldset}}
+            {{/if}}
+            {{#if equals itemType 'message'}}
+            {{else}}
+            <div id="share"></div>
+            <div class="card card-contrast card-full-success">
+              <div class="card-header">{{_ "addCollaboratorsTo"}} {{_ "thisItem"}}
+                <span class="icon mdi share pull-right" style="font-size: 50px;margin-top:-20px;"></span>
+              </div>
+              <div class="card-body">
+                <h5>{{_ "shareText"}}</h5>
+                {{#if noContacts}}
+                <h5 class="text-info">{{_ "noContacts" sharingCode}}</h5>
+                {{else}} {{>afFieldInput name="recipients" style="width:100%;"}} {{/if}}
+              </div>
+            </div>
+            {{/if}}
+            {{> afQuickField name='doc_tmp_key'}}
+            {{> afQuickField name='doc_fileNonce'}}
+          </fieldset>
+        </div>
+      </div>
+      <p class="text-right">
+        <button type="submit" class="btn btn-lg btn-space btn-primary btn-save"><i class="icon mdi mdi-plus"></i> {{_ "Add"}}</button>
+        <a class="btn btn-lg btn-space btn-secondary cancel"><i class="icon mdi mdi-close"></i> {{_ "Cancel"}}</a>
+      </p>
+    </div>
+
+  </div>
+
+  {{/autoForm}}
+</template>

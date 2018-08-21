@@ -1,0 +1,106 @@
+<template name="App_items_card">
+
+  <div class="card-sv card card-border-color" style="border-top-color: {{getTypeColor type}};" data-id={{_id}}>
+    <div class="card-header card-header-divider {{#if equals type 'folder'}}open-folder{{else}}open-or-drag{{/if}}" data-id={{_id}} draggable="true">
+      <div class="row">
+        <div class="col-md-10">
+          <strong>{{title}}</strong>
+        </div>
+        <div class="col-md-2">
+          <span class="icon mdi {{getTypeIcon type}}"></span>
+        </div>
+      </div>
+
+      <h4 class="small" style="margin-top: 3px;margin-bottom: 3px;">{{getCalendarDate updatedAt}}</h4>
+
+      {{#each folder in folders}}
+      <span class="badge open-folder" data-id="{{folder}}">{{itemName folder}}</span>
+      {{/each}}
+    </div>
+
+    <div class="card-body">
+      <div class="be-scroller">
+        <div id="content" style="overflow:auto;max-height:130px;">
+          {{#if equals type 'account'}}
+          <div class="label">{{_ "Login"}}</div>
+          <div class="value">{{login}}</div>
+
+          <div class="label">{{_ "Password"}}</div>
+          <div class="value">{{passwordToggle _id}}&nbsp;&nbsp;&nbsp;
+            <button class='btn btn-default passwordToggle' data-toggle="tooltip" data-placement="top" title={{_ "togglePassword"}} data-id="{{_id}}"><span class="icon mdi {{passwordToggleState _id}}"></span></button>
+            <button class='btn btn-default copyPassword' data-clipboard-text='{{password}}' data-clipboard-action='copy' data-toggle="tooltip" data-placement="top" title={{_ "copyToClipboard"}}><span class="icon mdi mdi-copy"></span></button>
+          </div>
+          {{#if url}}
+          <div class="label">URL</div>
+          <div class="value"><a href="{{url}}" class="white-text value"><u>{{url}}</u></a></div>
+          {{/if}}
+          {{/if}}
+
+          {{#if equals type 'note'}}
+          <p>{{{notes}}}</p>
+          {{/if}}
+
+          {{#if equals type 'folder'}}
+          <div class="text-center open-folder" data-id="{{_id}}"><div class="font-xl">{{numOfChildren}}</div><span> {{_ "items"}}</span></div>
+          {{/if}}
+
+
+          {{#if equals type 'key'}}
+          <div class="label">
+            {{_ "PublicKey"}}
+          </div>
+          <div class="value">{{public_key}}</div>
+          <div class="label">
+            {{_ "PrivateKey"}}
+          </div>
+          <div class="value">
+            {{keyToggle _id}}&nbsp;&nbsp;&nbsp;
+            <button class='btn pmd-ripple-effect btn-default pmd-btn-raised notification-trigger btn-vsm keyToggle' data-toggle="tooltip" data-placement="top" title={{_ "togglePassword"}} data-id="{{_id}}"><span class="icon mdi {{keyToggleState _id}}"></span></button>
+            <button class='btn pmd-ripple-effect btn-default pmd-btn-raised notification-trigger btn-vsm copyPassword' data-clipboard-text='{{private_key}}' data-clipboard-action='copy' data-toggle="tooltip" data-placement="top" title={{_ "copyToClipboard"}}><span class="icon mdi mdi-copy"></span></button>
+          </div>
+          {{/if}}
+
+          {{#if equals type 'message'}}
+          {{#each message}}
+          <p>{{body}}</p>
+          {{/each}}
+          {{/if}}
+
+          {{#if files}}
+            <p>{{{notes}}}</p>
+            {{#each files}}
+              <a href='#' class="download" data-id={{this}}>{{getFileName this}} ({{getFileSize this}})</a><br>
+            {{/each}}
+          {{/if}}
+
+          {{#if equals type 'help'}}
+          {{#each message}}
+          <p>{{body}}</p>
+          {{/each}}
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+
+{{#if equals type "folder"}}
+  <a class="btn btn-secondary open-folder"  data-id="{{_id}}"><i class="icon mdi mdi-open-in-new"></i></a>
+{{else}}
+  <a href="{{pathFor 'App.item.view' id=_id}}" class="btn btn-secondary"><i class="icon mdi mdi-open-in-new"></i></a>
+{{/if}}
+<a href="{{pathFor 'App.edit' id=_id}}" class="btn btn-secondary"><i class="icon mdi mdi-edit"></i></a>
+
+<a href="#" data-id={{_id}} data-type={{type}}  class="btn btn-secondary delete"><i class="icon mdi mdi-delete"></i></a>
+{{#if notDocOwner owner_id}}<span class="badge btn-success btn-vsm open-user text-center" data-id={{owner_id}}>{{docOwner owner_id}}</span>{{/if}}
+
+{{#if isDocOwner owner_id}}
+  {{#if isShared _id}}
+    <span class="btn btn-primary share" data-id={{_id}}><i class="icon mdi mdi-share"></i></span>
+  {{else}}
+    <span class="btn btn-secondary share" data-id={{_id}}><i class="icon mdi mdi-share"></i></span>
+  {{/if}}
+{{/if}}
+    </div>
+  </div>
+
+</template>

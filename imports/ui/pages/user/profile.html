@@ -1,0 +1,270 @@
+<template name="App_user_profile">
+  <div class="row">
+    <div class="col-lg-6 col-sm-12">
+      <div class="card card-border-color card-border-color-success">
+        <div class="card-body">
+          <h2>{{_ "SharingCode"}}</h2>
+          <h2 class="sharing-code">
+            <b>{{sharingCode}}</b>&nbsp;
+            <button class='btn pmd-ripple-effect btn-default pmd-btn-raised notification-trigger btn-vsm copy-sharing-code' data-clipboard-text='{{sharingCode}}'
+              data-clipboard-action='copy' data-toggle="tooltip" data-placement="top" title={{_ "copyToClipboard"}}>
+              <span class="icon mdi mdi-copy"></span>
+            </button>
+          </h2>
+          <p>{{_ "SharingCodeInstructions"}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+      <div class="card card-border-color card-border-color-success">
+        <div class="card-body">
+          <h2>{{_ "ChangeDisplayName"}}</h2>
+          <p>{{_ "DisplayNameExplanation"}}</p>
+          <form id="change-display-name">
+            <label for="display-name" class="control-label">
+              {{_ "DisplayName"}}
+            </label>
+            <input id="display-name" class="form-control" required="" type="text" value={{getDisplayName}} data-parsley-required-message={{_
+              "PublicNameRequired"}}>
+          </form>
+          <p class="text-right">
+            <button id="change-display-name" class="btn btn-primary">{{_ "ChangeDisplayName"}}</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12">
+      <div class="card card-border-color card-border-color-success">
+        <div class="card-body">
+          <h2>{{_ "ChangePassword"}}</h2>
+          <form id='change-password'>
+            <label for="current-password" class="control-label">
+              {{_ "CurrentPassword"}}
+            </label>
+            <input id="current-password" class="form-control" type="password" required="">
+
+            <label for="new-password" class="control-label">
+              {{_ "NewPassword"}}
+            </label>
+            <input id="new-password" class="form-control" type="password" required="">
+
+            <label for="new-password2" class="control-label">
+              {{_ "PasswordAgain"}}
+            </label>
+            <input id="new-password2" class="form-control" type="password" required="" data-parsley-equalto="#new-password" data-parsley-equalto-message={{_
+              "PassphraseMatchError"}}>
+          </form>
+          <p class="text-right">
+            <button id="change-password" class="btn btn-primary">{{_ "ChangePassword"}}</button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+      <div class="card card-border-color card-border-color-success">
+        <div class="card-body">
+          <h2>{{_ "ChangeEmail"}}</h2>
+          <form id="change-email">
+            <label for="display-name" class="control-label">
+              {{_ "Email"}}
+            </label>
+            <input id="email-address" class="form-control" type="email" value={{getEmailAddress}}>
+          </form>
+          <p class="text-right">
+            <button id="change-email-address" class="btn btn-primary">{{_ "ChangeEmail"}}</button>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+      <div class="card card-border-color card-border-color-success">
+        <div class="card-body">
+          <h2>{{_ "ChangeLanguage"}}</h2>
+
+          <label class="custom-control custom-radio">
+            <input type="radio" name="optionsLang" class="custom-control-input" value="en" {{isLangChecked "en"}}>
+            <span class="custom-control-label">English</span>
+          </label>
+          <label class="custom-control custom-radio">
+            <input type="radio" name="optionsLang" class="custom-control-input" value="fr" {{isLangChecked "fr"}}>
+            <span class="custom-control-label">Français</span>
+          </label>
+          <label class="custom-control custom-radio">
+            <input type="radio" name="optionsLang" class="custom-control-input" value="es" {{isLangChecked "es"}}>
+            <span class="custom-control-label">Español</span>
+          </label>
+          <label class="custom-control custom-radio">
+            <input type="radio" name="optionsLang" class="custom-control-input" value="zh-CN" {{isLangChecked "zh-CN"}}>
+            <span class="custom-control-label">中文</span>
+          </label>
+          <label class="custom-control custom-radio">
+            <input type="radio" name="optionsLang" class="custom-control-input" value="da" {{isLangChecked "da"}}>
+            <span class="custom-control-label">Dansk</span>
+          </label>
+          <label class="custom-control custom-radio">
+            <input type="radio" name="optionsLang" class="custom-control-input" value="nl" {{isLangChecked "nl"}}>
+            <span class="custom-control-label">Nederlands</span>
+          </label>
+          <label class="custom-control custom-radio">
+            <input type="radio" name="optionsLang" class="custom-control-input" value="de" {{isLangChecked "de"}}>
+            <span class="custom-control-label">Deutsche</span>
+          </label>
+          <button id="change-language" class="btn btn-primary">{{_ "ChangeLanguage"}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <a name="plans"></a>
+  <h2>{{_ "ChangePlan"}}</h2>
+  {{getPlan}}
+  <div class="row">    
+    <div class="col-md-4">
+      <div class="card {{#if freePlan}} card-border-color card-border-color-success{{/if}}">
+        <!-- Card header -->
+        <div class="card-header card-header-divider">
+          <h1>{{_ "Free"}} {{#if freePlan}}({{_"CurrentPlan"}}){{/if}}</h1>
+          <span>
+            <b>$0.00 USD / {{_ "year"}}</b>
+          </span>
+        </div>
+        <!-- Card body -->
+        <div class="card-body">
+          <div role="alert" class="alert alert-success">
+            <div class="message" style="padding-left: 20px;">
+              <strong>50</strong> {{_ "SecuredItems"}}</div>
+            <div class="message" style="padding-left: 20px;">
+              <strong>500 MB</strong> {{_ "SecuredFiles"}}</div>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">{{{getTypeIconFullHTML 'note'}}} {{_ "Notes"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'account'}}} {{_ "Accounts"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'storage'}}}
+              <b> 50 MB {{_ "SecureFileStorage"}}</b>
+            </li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'key'}}} {{_ "Keys"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'message'}}} {{_ "Mail"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'folder'}}} {{_ "Folders"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'contacts'}}} {{_ "withUnlimited"}} {{_ "Contacts"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'sharing'}}} {{_ "withUnlimited"}} {{_ "Sharing"}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+
+    <a name="plans"></a>
+    <div class="col-md-4">
+      <div class="card {{#if AppPlans.hasAccess 'silver'}} {{#if AppPlans.hasAccess 'gold'}} {{else}} card-border-color card-border-color-success {{/if}}{{/if}}">
+
+        <!-- Card header -->
+        <div class="card-header card-header-divider">
+          <h1>{{_ "Silver"}} {{#if silverPlan}} ({{_"CurrentPlan"}}){{/if}}</h1>
+          <span>
+            <b>$9.99 USD / {{_ "year"}}</b>
+          </span>
+        </div>
+
+        <!-- Card body -->
+        <div class="card-body">
+          <div role="alert" class="alert alert-success">
+            <div class="message" style="padding-left: 20px;">
+              <strong>1000</strong> {{_ "SecuredItems"}}</div>
+            <div class="message" style="padding-left: 20px;">
+              <strong>10 GB</strong> {{_ "SecuredFiles"}}</div>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">{{{getTypeIconFullHTML 'note'}}} {{_ "Notes"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'account'}}} {{_ "Accounts"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'storage'}}}
+              <b> 10 GB {{_ "SecureFileStorage"}}</b>
+            </li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'key'}}} {{_ "Keys"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'message'}}} {{_ "Mail"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'folder'}}} {{_ "Folders"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'contacts'}}} {{_ "withUnlimited"}} {{_ "Contacts"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'sharing'}}} {{_ "withUnlimited"}} {{_ "Sharing"}}</li>
+          </ul>
+
+          {{#if silverPlan }} {{#if getExpiration 'silver'}}
+          <br>
+          <div role="alert" class="alert alert-primary alert-icon alert-icon-border alert-dismissible">
+              <div class="icon"><span class="mdi mdi-info-outline"></span></div>
+              <div class="message">
+                {{_ "canceledPlan"}} {{getExpiration 'silver'}}. {{_ "convertedToFreePlan"}}
+              </div>
+            </div>
+          {{/if}} {{/if}}
+        </div>
+        {{#if silverPlan}} 
+        <button type="button" class="btn btn-primary btn-block cancel-silver">{{_ "CancelPlan"}}</button>
+        {{/if}}
+        {{#if freePlan}}
+        <button type="button" class="btn btn-primary btn btn-block select-silver">{{_ "SelectPlan"}}</button>
+        {{/if}}
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card {{#if AppPlans.hasAccess 'gold'}} card-border-color card-border-color-success {{/if}}">
+
+        <!-- Card header -->
+        <div class="card-header card-header-divider">
+          <h1>{{_ "Gold"}} {{#if AppPlans.hasAccess 'gold'}}({{_"CurrentPlan"}}){{/if}}</h1>
+          <span>
+            <b>$19.99 USD / {{_ "year"}}</b>
+          </span>
+        </div>
+
+        <!-- Card body -->
+        <div class="card-body">
+          <div role="alert" class="alert alert-success">
+            <div class="message" style="padding-left: 20px;">
+              <strong>10000 </strong> {{_ "SecuredItems"}}</div>
+            <div class="message" style="padding-left: 20px;">
+              <strong>25 GB</strong> {{_ "SecuredFiles"}}</div>
+          </div>
+          <ul class="list-group">
+            <li class="list-group-item">{{{getTypeIconFullHTML 'note'}}} {{_ "Notes"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'account'}}} {{_ "Accounts"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'storage'}}}
+              <b> 25GB {{_ "SecureFileStorage"}}</b>
+            </li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'file'}}} {{_ "Files"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'key'}}} {{_ "Keys"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'message'}}} {{_ "Mail"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'folder'}}} {{_ "Folders"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'contacts'}}} {{_ "withUnlimited"}} {{_ "Contacts"}}</li>
+            <li class="list-group-item">{{{getTypeIconFullHTML 'sharing'}}} {{_ "withUnlimited"}} {{_ "Sharing"}}</li>
+          </ul>
+          {{#if AppPlans.hasAccess 'gold'}} {{#if getExpiration 'gold'}}
+          <br>
+          <div role="alert" class="alert alert-primary alert-icon alert-icon-border alert-dismissible">
+              <div class="icon"><span class="mdi mdi-info-outline"></span></div>
+              <div class="message">
+                {{_ "canceledPlan"}} {{getExpiration 'silver'}}. {{_ "convertedToFreePlan"}}
+              </div>
+            </div>
+          {{/if}} {{/if}}
+        </div>
+        {{#if AppPlans.hasAccess 'gold'}} {{#if getExpiration 'gold'}} {{else}}
+        <button type="button" class="btn btn-primary btn-block cancel-gold">{{_ "CancelPlan"}}</button>
+        {{/if}} {{else}}
+        <button type="button" class="btn btn-primary btn btn-block select-gold">{{_ "SelectPlan"}}</button>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+
+  <div class="card card-border-color card-border-color-danger">
+    <div class="card-body">
+      <h2>{{_ "DeleteAccount"}}</h2>
+      <p style="line-height: 50px;">
+        <span class="icon mdi mdi-alert-octagon card-border-color-danger" style="font-size:48px;"></span>
+        <b style="vertical-align: middle;">{{{_ "DeleteAccountText"}}}</b>
+      </p>
+      <button type="button" class="btn btn-danger btn-lg btn-block delete-account">{{_ "DeleteAccount"}}</button>
+    </div>
+  </div>
+</template>

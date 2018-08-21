@@ -1,0 +1,138 @@
+<template name="App_ui_leftbar">
+  <div class="be-left-sidebar">
+    <div class="left-sidebar-wrapper">
+      <a href="#" class="left-sidebar-toggle">{{getPageTitle}}</a>
+      <div class="left-sidebar-spacer">
+        <div class="left-sidebar-scroll">
+          <div class="left-sidebar-content">
+            <ul class="sidebar-elements">
+              <li class="divider">{{_ "Menu"}}</li>
+              <!--<li><a href="{{pathFor 'App.dashboard'}}" class="close-sidebar"><i class="icon mdi mdi-home"></i><span>{{_ "Dashboard"}}</span></a>
+              </li>-->
+              <li class="parent open">
+                <a href="">
+                  {{{getTypeIconFullHTML 'allItems'}}}
+                  <span>{{_ "DecryptedItems"}}</span>
+                </a>
+                <ul>
+                  <li>
+                    <a href="{{pathFor 'App.all'}}" class="close-sidebar">
+                      {{{getTypeIconFullHTML 'allItems'}}}
+                      <b><span>{{_ "AllItems"}}</span></b>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{pathFor 'App.notes'}}" class="close-sidebar">
+                      {{{getTypeIconFullHTML 'note'}}}
+                      <span>{{_ "Notes"}}</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{pathFor 'App.accounts'}}" class="close-sidebar">
+                      {{{getTypeIconFullHTML 'account'}}}
+                      <span>{{_ "Accounts"}}</span>
+                    </a>
+                  </li>
+                  <!--<li style="padding-left: 10px;"><a href="{{pathFor 'App.files'}}" class="close-sidebar"><i class="icon mdi mdi-file"></i><span>{{_ "Files"}}</span></a>
+                    </li>-->
+                  <li>
+                    <a href="{{pathFor 'App.keys'}}" class="close-sidebar">
+                      {{{getTypeIconFullHTML 'key'}}}
+                      <span>{{_ "Keys"}}</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{pathFor 'App.messages'}}" class="close-sidebar">
+                      {{{getTypeIconFullHTML 'message'}}}
+                      <span>{{_ "Mail"}}</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{pathFor 'App.files'}}" class="close-sidebar">
+                      {{{getTypeIconFullHTML 'file'}}}
+                      <span>{{_ "Files"}}</span>
+                    </a>
+                  </li>
+
+                  <li class="parent folder-parent">
+                    <a href="">
+                      {{{getTypeIconFullHTML 'folderAll'}}}
+                      <span>{{_ "Folders"}}</span>
+                    </a>
+                    <ul class="sub-menu">
+                      <li>
+                        <a href="{{pathFor 'App.folders'}}" class="close-sidebar">
+                          {{{getTypeIconFullHTML 'folderAll'}}}
+                          <b><span>{{_ "AllFolders"}}</span></b>
+                        </a>
+                      </li>
+                      {{#each folders}}
+                      <li>
+                        <a href="#" data-id={{this._id}} class="close-sidebar open-folder">
+                          {{{getTypeIconFullHTML 'folder'}}}
+                          <span>{{this.title}}</span>
+                        </a>
+                      </li>
+                      {{/each}}
+                      {{#if folders}} 
+
+                      {{/if}}
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+
+
+              <li class="parent">
+                <a href="{{pathFor "App.contacts"}}">
+                  <i class="icon mdi mdi-accounts-list"></i>
+                  <span>{{_ "Contacts"}}</span>
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="{{pathFor 'App.contacts.manage'}}" class="close-sidebar">{{_ "Manage"}}</a>
+                  </li>
+                  <li>
+                    <a href="{{pathFor 'App.contacts.pending'}}" class="close-sidebar">{{_ "PendingInvites"}}</a>
+                  </li>
+                  <li>
+                    <a href="{{pathFor 'App.contacts.sent'}}" class="close-sidebar">{{_ "SentInvites"}}</a>
+                  </li>
+                </ul>
+              </li>
+
+              {{#if isInRole 'wheel' 'global-group'}}
+              <li>
+                <a href="{{pathFor "Admin.utils"}}">
+                  <i class="icon mdi mdi-settings"></i>
+                  <span>{{_ "Settings"}}</span>
+                </a>                
+              </li>
+              {{/if}}
+
+            </ul>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="progress-widget data-usage">
+        <div class="progress-data">
+          <span class="progress-value">{{getPlanUsage}}%</span>
+          <span class="name">{{_ "PlanLimit"}}</span>
+        </div>
+        <div class="progress">
+          <div style="width:{{getPlanUsage}}%;" class="progress-bar progress-bar-primary"></div>
+        </div>
+        <br>
+        <div class="progress-data">
+          <span class="progress-value">{{getDiskUsage}}%</span>
+          <span class="name">{{_ "StorageUsage"}}</span>
+        </div>
+        <div class="progress">
+          <div style="width:{{getDiskUsage}}%;" class="progress-bar progress-bar-primary"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

@@ -1,0 +1,9 @@
+import './notes.js';
+import './accounts.js';
+import './keys.js';
+import './files.js';
+import './folders.js';
+import './message.js';
+import './message_update.js';
+import './help.js';
+import './help_update.js';

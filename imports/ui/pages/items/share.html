@@ -1,0 +1,26 @@
+<template name="App_items_share">
+  <div class="modal fade" id="modal-generic" tabindex="-1" role="dialog" aria-labelledby="modal-terms-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered colored-header colored-header-success" role="document">
+      {{#autoForm collection="Items" id="shareItems" type="update" doc=record}}
+      <div class="modal-content" style="max-height:100%; overflow-y: auto;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-terms-title">{{_ "addCollaboratorsTo"}} &quot;{{record.title}}&quot;</h5>
+          <span class="icon mdi share pull-right" style="font-size: 50px;margin-top:-20px;"></span>
+        </div>
+        <div class="modal-body">
+          <h5>{{_ "shareText"}}</h5>
+          {{#if noContacts}}
+          <h5 class="text-info">{{_ "noContacts" sharingCode}}</h5>
+          {{else}}
+            {{>afFieldInput name="recipients" style="width:100%;"}}
+          {{/if}}
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success share">{{_ "Save"}} </button>
+          <button data-dismiss="modal" class="btn btn-default">{{_ "Cancel"}}</button>
+        </div>
+      </div>
+      {{/autoForm}}
+    </div>
+  </div>
+</template>

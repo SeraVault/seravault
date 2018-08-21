@@ -1,0 +1,29 @@
+<template name="App_user_setup">
+  <div tabindex="-1" class="modal fade" id="setup-dialog" style="display: none;" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="media-body media-middle">
+            <h2 class="pmd-card-title-text">{{_ "AccountSetup"}}</h2>
+          </div>
+        </div>
+        <div class="modal-body">
+          <h2>{{_ "HardeningPassword"}}</h2>
+          <p>{{_ "AddingRandomness"}}</p>
+          <div class="progress-rounded progress pmd-progress"><div class="progress-bar progress-bar-success harden-password"></div></div>
+          <h2>{{_ "GeneratingKeys"}}</h2>
+          <p>{{_ "GeneratingPubPriv"}}</p>
+          <div class='test'></div>
+          <div class="progress-rounded progress pmd-progress"><div class="progress-bar progress-bar-success generate-keys"></div></div>
+          <h2>{{_ "EncryptingPrivateKey"}}</h2>
+          <p>{{_ "EncryptingPrivateKeyMore"}}</p>
+          <div class="progress-rounded progress pmd-progress"><div class="progress-bar progress-bar-success encrypt-key"></div></div>
+          <h2>{{_ "SetupComplete"}}</h2>
+          <p>{{_ "SetupReady"}}</p>
+          <button data-dismiss="modal" class="btn pmd-btn-raised btn-primary btn-block pmd-ripple-effect ok-button" disabled> {{_ "Ok"}} </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

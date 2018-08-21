@@ -1,0 +1,28 @@
+<template name="homeTopButtons">
+  <span class="dropdown" style="position: fixed; top: 0;right: 0;">
+    <div style="display: inline-block">
+      <button class="btn pmd-ripple-effect btn-primary dropdown-toggle" type="button" id="login" data-toggle="dropdown" aria-expanded="true">{{_ "Navigate"}} <span class="caret"></span></button>
+      <ul aria-labelledby="dropdownMenu1" role="menu" class="dropdown-menu">
+        <li role="presentation"><a href={{pathFor 'App.home'}} tabindex="-1" role="menuitem">{{_ "Start"}}</a></li>
+        <li role="presentation"><a href={{pathFor 'App.login'}} tabindex="-1" role="menuitem">{{_ "Login"}}</a></li>
+        <li role="presentation"><a href={{pathFor 'App.register'}} tabindex="-1" role="menuitem">{{_ "Register"}}</a></li>
+        {{#if isCordova}}
+        <li role="separator" class="divider"></li>
+        <li role="presentation"><a tabindex="-1" role="menuitem" id='exit-app'>{{_ "Exit"}}</a></li>
+        {{/if}}
+      </ul>
+    </div>
+    <div style="display: inline-block">
+      <button class="btn pmd-ripple-effect btn-primary dropdown-toggle" type="button" id="language" data-toggle="dropdown" aria-expanded="true">{{getLanguage}}  <span class="caret"></span></button>
+      <ul aria-labelledby="dropdownMenu2" role="menu" class="dropdown-menu">
+        <li role="presentation"><a href="" id="english" tabindex="-1" role="menuitem">English</a></li>
+        <li role="presentation"><a href="" id="french" tabindex="-1" role="menuitem">Français</a></li>
+        <li role="presentation"><a href="" id="spanish" tabindex="-1" role="menuitem">Español</a></li>
+        <li role="presentation"><a href="" id="chinese" tabindex="-1" role="menuitem">中文</a></li>
+        <li role="presentation"><a href="" id="danish" tabindex="-1" role="menuitem">Dansk</a></li>
+        <li role="presentation"><a href="" id="dutch" tabindex="-1" role="menuitem">Nederlands</a></li>
+        <li role="presentation"><a href="" id="german" tabindex="-1" role="menuitem">Deutsche</a></li>
+      </ul>
+    </div>
+  </span>
+</template>

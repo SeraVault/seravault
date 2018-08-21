@@ -1,0 +1,10 @@
+<template name="App_message_update_fieldset">
+    <!--fields moved to main template-->
+    <div class="form-group pmd-textfield">
+      <label for="message" class="control-label">
+        <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+        {{_ "Message"}}
+      </label>
+      <textarea id="message" class="form-control summernote" required="" data-parsley-required-message={{_ "MessageRequired"}}></textarea>
+    </div>
+</template>

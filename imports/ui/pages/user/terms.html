@@ -1,0 +1,19 @@
+<template name="App_terms-of-use">
+
+  <div tabindex="-1" class="modal fade" id="complete-dialog" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+				<h2 class="pmd-card-title-text">Terms and Conditions</h2>
+			</div>
+			<div class="modal-body">
+				{{> App_terms_text}}
+			</div>
+			<div class="pmd-modal-action pmd-modal-bordered text-right">
+        <a href="javascript:history.back()" class="close btn pmd-btn-flat pmd-ripple-effect btn-primary" type="button">cancel</a>
+			</div>
+		</div>
+	</div>
+</div>
+</template>

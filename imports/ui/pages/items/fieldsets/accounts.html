@@ -1,0 +1,44 @@
+<template name="App_accounts_fieldset">
+  <div class="form-group">
+    <label for="login" class="control-label">
+      <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+      {{_ "Login"}}
+    </label>
+    <div class="input-group mb-3">
+      {{>afFieldInput name="login" class="form-control"}}      
+    </div>
+    <span class="help-block">{{{afFieldMessage name="login"}}}</span>
+  </div>
+
+  <div class="form-group">
+    <label for="password" class="control-label">
+        <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+        {{_ "Password"}}
+    </label>
+    <div class="input-group mb-3">
+      {{>afFieldInput name="password" id="svPassword" class="form-control"}}
+      <div class="input-group-append">
+        <button class='btn btn-default generatePassword' data-toggle="tooltip" data-placement="top" title={{_ "generatePassword"}}>
+          <span class="icon mdi mdi-flare"></span>
+        </button>        
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="url" class="control-label">
+      <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+      URL
+    </label>
+    <div class="input-group mb-3">
+        {{>afFieldInput name="url" class="form-control"}}       
+      </div>
+  </div>
+  <div class="form-group">
+    <label for="note" class="control-label">
+      <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+      {{_ "Notes"}}
+    </label>
+    {{>afFieldInput name="notes" class="form-control"}}        
+  </div>
+</template>

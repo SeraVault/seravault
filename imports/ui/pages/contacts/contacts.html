@@ -1,0 +1,42 @@
+<template name="contacts">
+  <div class="action-bar row">
+    <div class="col-lg-12 col-xs-12">
+      <div class="form-group icon-right">
+        <div class="floatinglabels pmd-textfield">
+          <input type="text" id="search" placeholder={{_ "SearchDotDot"}} class="form-control" value="{{getSearchTerm}}">
+          <span class="dic dic-search">&nbsp;</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{#if noContacts}}
+    <h1 class="font-xl-gray">{{_ "NoResults"}}</h1>
+    <p>{{{_ "noContactsMore0" sharingCode}}}</p>
+    <p>{{{_ "noContactsMore1"}}}</p>
+  {{else}}
+  <div class="pmd-card pmd-z-depth-1">
+  	<div class="table-responsive">
+  		<table cellspacing="0" cellpadding="0" class="table pmd-table" id="table-pending-invitations">
+  			<thead>
+  				<tr>
+  					<th>{{_ "DisplayName"}}</th>
+  					<th>{{_ "CreatedDate"}}</th>
+  					<th></th>
+  				</tr>
+  			</thead>
+  			<tbody>
+          {{#each contacts}}
+  				<tr>
+  					<td data-title="Name">{{this.displayName}}</td>
+  					<td data-title="Title">{{getCalendarDate this.createdAt}}</td>
+  					<td><button data-user-id={{this.userId}} data-user-name="{{this.displayName}}" class="delete-contact btn btn-sm pmd-ripple-effect btn-primary pull-right"><i class="icon mdi mdi-delete"></i></button>
+            </td>
+  				</tr>
+          {{/each}}
+  			</tbody>
+  		</table>
+  	</div>
+
+  </div>
+  {{/if}}
+</template>

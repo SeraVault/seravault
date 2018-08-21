@@ -1,0 +1,40 @@
+<template name='contactsSent'>
+  {{#if noInvites}}
+    <h1>{{_ "SentInvitations"}}</h1>
+    <h2 class="font-xl-gray">{{_ "noInvitationsSent"}}</h2><br>
+    <p>{{{_ "noInvitationsText0"}}}</p>
+    <p>{{{_ "noInvitationsText1"}}}</p>
+  {{else}}
+  <div class="pmd-card pmd-z-depth-1">
+    <div class="pmd-card-title">
+      <h2>{{_ "SentInvitations"}}</h2>
+    </div>
+    <div class="pmd-card-body">
+      <div class="table-responsive">
+        <table cellspacing="0" cellpadding="0" class="table pmd-table" id="table-sent-invitations">
+          <thead>
+            <tr>
+              <th>{{_ "To"}}</th>
+              <th>{{_ "Note"}}</th>
+              <th>{{_ "CreatedDate"}}</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each invitations}}
+            <tr>
+              <td data-title="From">{{this.toUserDisplayName}}</td>
+              <td data-title="Note">{{this.note}}</td>
+              <td data-title="When">{{getCalendarDate this.createdAt}}</td>
+              <td class="pull-right">
+                <button class="btn btn-primary retract-invite" data-id={{this._id}}>{{_ "Retract"}}</button>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+    {{/if}}
+</template>

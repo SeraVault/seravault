@@ -1,0 +1,75 @@
+<template name="App_register">
+  <body class="be-splash-screen">
+    {{#if showSpinner}}{{> spinner}}{{/if}}
+    <div class="be-wrapper be-login">
+      <div class="be-content">
+        <div class="main-content container-fluid">
+          <div class="splash-container">
+            <div class="card card-border-color card-border-color-primary">
+              <div class="card-header seravault-login-header"><img src="/img/seravault_logo.svg" alt="logo" width="100%" class="logo-img "><span class="splash-description">{{_ "Slogan"}}</span></div>
+              <div class="card-body">
+                <form id="register" data-parsley-validate="" novalidate=""><span class="splash-title pb-4">{{_ "Register"}}</span>
+                  <div class="form-group">
+                    <select id="language" class="select-language form-control" placeholder={{_ "Language"}}>
+                      <option value="en" {{langSelected "en"}}>English</option>
+                      <option value="fr" {{langSelected "fr"}}>Français</option>
+                      <option value="es" {{langSelected "es"}}>Español</option>
+                      <option value="en" {{langSelected "zh-CN"}}>中文</option>
+                      <option value="fr" {{langSelected "da"}}>Dansk</option>
+                      <option value="es" {{langSelected "nl"}}>Nederlands</option>
+                      <option value="es" {{langSelected "de"}}>Deutsche</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" id="email" required="" placeholder={{_ "Email"}} autocomplete="off" class="form-control" data-parsley-required-message={{_ "InvalidEmail"}}>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" id="displayName" required="" class="form-control" placeholder={{_ "DisplayNamePlaceholder"}} data-parsley-required-message={{_ "PublicNameRequired"}}>
+                  </div>
+
+                  <div class="form-group">
+                    <input type="text" id="password" class="form-control" required="" placeholder={{_ "Password"}}>
+                    <input type="text" id="password2" class="form-control" required="" placeholder={{_ "PasswordAgain"}} data-parsley-equalto="#password" data-parsley-equalto-message={{_ "PassphraseMatchError"}}>
+                  </div>
+
+                  <div role="alert" class="alert alert-primary alert-icon">
+                    <div class="icon"><span class="mdi mdi-info-outline"></span></div>
+                    <div class="message">
+                      {{{_ "passphraseInfo0"}}} <br> {{{_ "passphraseInfo1"}}} <br> {{{_ "passphraseInfo2"}}} <br> {{{_ "passphraseInfo3"}}} <br> {{{_ "passphraseInfo4"}}}
+                    </div>
+                  </div>
+                  <div role="alert" class="alert alert-danger alert-icon">
+                    <div class="icon"><span class="mdi mdi-close-circle-o"></span></div>
+                    <div class="message">
+                      <strong> {{{_ "passphraseWarning0"}}} </strong> {{{_ "passphraseWarning1"}}} <br> {{{_ "passphraseWarning2"}}}
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input terms-value" id="terms" value="accepted" data-parsley-mincheck="1" required  data-parsley-required-message={{_ "MustAcceptTerms"}}><span class="custom-control-label">{{_ "iveReadAndAgreeTo"}} <u class="terms-link">{{_ "theTermsAndConditions"}}</u></span>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input cant-reset-password" id="cantResetPassword" data-parsley-mincheck="1" required value="accepted" data-parsley-required-message={{_ "cantResetPasswordError"}}><span class="custom-control-label">{{_ "cantResetPassword"}}</span>
+                    </label>
+                  </div>
+                  <div class="form-group">
+                    <!--{{#if notCordova}}
+                    {{> reCAPTCHA widget_id="SeraVault"}}
+                    {{/if}}-->
+                  </div>
+                  <div class="form-group pt-2">
+                    <button type="submit" class="btn btn-block btn-success btn-lg register">{{_ "Register"}}</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    {{> App_terms}}
+  </body>
+</template>

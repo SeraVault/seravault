@@ -1,0 +1,26 @@
+<template name="App_decrypt_modal">
+  <div class="modal fade" id="modal-generic" tabindex="-1" role="dialog" aria-labelledby="modal-terms-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered colored-header colored-header-success" role="document">
+      <div class="modal-content" style="max-height:100%; overflow-y: auto;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-terms-title">{{_ "Decrypting"}}</h5>
+            <span class="icon mdi {{modalIcon}} pull-right" style="font-size: 50px;margin-top:-20px;"></span>
+        </div>
+        <div class="modal-body">
+          <h5>{{_ "downloadWarning"}}</h5>
+          <div class="progress mb-4">
+            <div role="progressbar" style="width: {{percent}}%" aria-valuenow="{{percent}}%" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-primary"></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="pull-left">
+            <label class="custom-control custom-checkbox custom-control-inline">
+              <input type="checkbox" class="custom-control-input dont-show-again"><span class="custom-control-label">{{_ "dontShowAgain"}}</span>
+            </label>
+          </div>
+          <button type="button" class="yes btn">{{_ "iUnderstand"}}</button>
+        </div>        
+      </div>
+    </div>
+  </div>
+</template>

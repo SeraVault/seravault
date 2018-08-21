@@ -1,0 +1,14 @@
+<template name="App_item_grid">
+  {{#if noData}}
+  <h1>{{_ "NoResults"}}</h1>
+  <h3 style="line-height: 100px;">{{{noResultsText}}}</h3>
+  {{else}}
+  <div class="row">
+    {{#each results}}
+    <div class="col-lg-2 col-md-3 col-sm-6">
+      {{>App_items_card this}}
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</template>

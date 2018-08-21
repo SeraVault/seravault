@@ -1,0 +1,34 @@
+<template name="App_contact">
+    <div class="modal fade" id="modal-contact" tabindex="-1" role="dialog" aria-labelledby="modal-contact-title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered colored-header colored-header-success" role="document">
+            <div class="modal-content" style="max-height:100%; overflow-y: auto;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-privacy-title">{{_ "CONTACT_US"}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="inputName">Name</label>
+                            <input id="inputName" placeholder="Enter name" class="form-control">
+                        </div>
+                        <div class="form-group pt-2">
+                            <label for="inputEmail">Email address</label>
+                            <input id="inputEmail" type="email" placeholder="Enter email" class="form-control">
+                        </div>
+                        <div class="form-group pt-2">
+                            <label for="inputMessage">Message</label>
+                            <textarea id="inputMessage" type="email" placeholder="Enter message" class="form-control"></textarea>
+                        </div>                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-space btn-primary send">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

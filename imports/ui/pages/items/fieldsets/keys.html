@@ -1,0 +1,26 @@
+<template name="App_keys_fieldset">
+    <div class="form-group pmd-textfield">
+      <label for="public_key" class="control-label">
+        <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+        {{_ "PublicKey"}}
+      </label>
+      {{>afFieldInput name="public_key" type="textarea"}}
+      <span class="help-block">{{{afFieldMessage name="public_key"}}}</span>
+    </div>
+
+    <div class="form-group pmd-textfield">
+      <label for="private_key" class="control-label">
+        <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+        {{_ "PrivateKey"}}
+      </label>
+      {{>afFieldInput name="private_key" type="textarea"}}
+    </div>
+    <div class="form-group pmd-textfield">
+      <label for="note" class="control-label">
+        <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+        {{_ "Notes"}}
+      </label>
+      {{>afFieldInput name='notes'}}
+    </div>
+    <!--{{>afArrayField name='files'}}-->
+</template>

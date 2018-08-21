@@ -1,0 +1,36 @@
+<template name="addButton">
+  <!-- Floating Action Button like Google Material -->
+  <div class="menu pmd-floating-action"  role="navigation">
+
+    <a href="{{pathFor 'App.contacts.invite'}}" class="pmd-floating-action-btn btn btn-sm pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger" data-title={{_ "NewContact"}}>
+      <span class="pmd-floating-hidden">{{_ "NewContact"}}</span>
+      <i class="material-icons">contacts</i>
+    </a>
+    <a href="{{pathFor 'App.item.add' type='message'}}" class="pmd-floating-action-btn btn btn-sm pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger" data-title={{_ "NewMail"}}>
+      <span class="pmd-floating-hidden">{{_ "NewMail"}}</span>
+      <i class="material-icons">chat</i>
+    </a>
+    <a href="{{pathFor 'App.item.add' type='folder'}}" class="pmd-floating-action-btn btn btn-sm pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger" data-title={{_ "NewFolder"}}>
+      <span class="pmd-floating-hidden">{{_ "NewFolder"}}</span>
+      <i class="material-icons">folder</i>
+    </a>
+    <a href="{{pathFor 'App.item.add' type='key'}}" class="pmd-floating-action-btn btn btn-sm pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger" data-title={{_ "NewKey"}}>
+      <span class="pmd-floating-hidden">{{_ "NewKey"}}</span>
+      <i class="material-icons">vpn_key</i>
+    </a>
+    <a href="{{pathFor 'App.item.add' type='account'}}" class="pmd-floating-action-btn btn btn-sm pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger" data-title={{_ "NewAccount"}}>
+      <span class="pmd-floating-hidden">{{_ "NewPassword"}}</span>
+      <i class="material-icons">account_box</i>
+    </a>
+    <a href="{{pathFor 'App.item.add' type='note'}}" class="pmd-floating-action-btn btn btn-sm pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger" data-title={{_ "NewNote"}}>
+      <span class="pmd-floating-hidden">{{_ "NewNote"}}</span>
+      <i class="material-icons">note</i>
+    </a>
+
+    <a class="pmd-floating-action-btn btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger" data-title="{{getCurrentAddType}}" href="{{getCurrentAddPath}}">
+      <span class="pmd-floating-hidden">Primary</span>
+      <i class="material-icons pmd-sm">add</i>
+    </a>
+  </div>
+
+</template>

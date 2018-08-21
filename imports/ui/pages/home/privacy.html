@@ -1,0 +1,37 @@
+<template name="App_privacy">
+  <div class="modal fade" id="modal-privacy" tabindex="-1" role="dialog" aria-labelledby="modal-privacy-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered colored-header colored-header-success" role="document">
+      <div class="modal-content" style="max-height:100%; overflow-y: auto;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-privacy-title">{{_ "Privacy"}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{> App_privacy_text}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">{{_ "Close"}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="modal-privacy" class="modal-container colored-header colored-header-success">
+    <div class="modal-content">
+      <div class="modal-header modal-header-colored">
+        <h3 class="modal-title">{{_ "Privacy"}}</h3>
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close modal-close"><span class="mdi mdi-close"></span></button>
+      </div>
+      <div class="modal-body">
+        {{>App_privacy_text}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal" class="btn btn-success modal-close">Proceed</button>
+      </div>
+    </div>
+  </div>
+</template>

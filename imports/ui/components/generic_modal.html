@@ -1,0 +1,19 @@
+<template name="App_generic_modal">
+  <div class="modal fade" id="modal-generic" tabindex="-1" role="dialog" aria-labelledby="modal-terms-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered colored-header colored-header-success" role="document">
+      <div class="modal-content" style="max-height:100%; overflow-y: auto;">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-terms-title">{{modalAction}} <b>{{modalActionTarget}}</b></h5>
+            <span class="icon mdi {{modalIcon}} pull-right" style="font-size: 50px;margin-top:-20px;"></span>
+        </div>
+        <div class="modal-body">
+          <h5>{{{modalMessage}}} <strong>{{{modalMessageTarget}}}</strong></h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="yes btn {{modalButton}}">{{modalYesButtonText}}</button>
+          {{#if modalShowCancelButton}}<button type="button" class="btn btn-default" data-dismiss="modal">{{_ "Cancel"}}</button>{{/if}}
+        </div>        
+      </div>
+    </div>
+  </div>
+</template>

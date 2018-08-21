@@ -1,0 +1,39 @@
+<template name="afModalWindow">
+    <div class="modal fade" id="afModalWindow">
+        <div class="modal-dialog{{dialogClass}}">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">{{{title}}}</h4>
+                </div>
+                {{#if $neq operation 'remove'}}
+                    <div class="modal-body">
+                        {{#if Template.subscriptionsReady }}
+                            {{#if prompt }}
+                                <p class="modal-promp">{{{prompt}}}</p>
+                            {{/if}}                                            
+                            {{> quickForm afAtts }}                        
+                        {{/if}}                     
+                    </div>
+                {{else}}
+                    <div class="modal-body">
+                        {{#if prompt }}
+                            <p class="modal-promp">{{{prompt}}}</p>
+                        {{/if}}
+                    </div>
+                    <div class="modal-footer">
+                        {{#quickRemoveButton class=buttonClasses collection=collection _id=docId beforeRemove=beforeRemove onSuccess=afterRemove onError=errorRemove}}{{buttonContent}}{{/quickRemoveButton}}
+                        <button type="button" class="{{closeButtonClasses}}" data-dismiss="modal">{{closeButtonContent}}</button>
+                    </div>
+                {{/if}}
+                
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="afModalShow">
+	<a href="#afModalShow" class="{{class}}">
+		{{> UI.contentBlock}}
+	</a>
+</template>

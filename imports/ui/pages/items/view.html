@@ -1,0 +1,105 @@
+<template name="App_items_view">
+  <div class="card card-border-color" style="border-top-color: {{getTypeColor record.type}};">
+    <div class="card-body">
+      <h2>{{record.title}}</h2>
+      <div style="overflow:auto;">
+        {{#if record.login}}
+          <h4 class="card-subtitle">{{_ "Login"}}</h4>          
+          <p class="content" id="login">{{{record.login}}}</p>        
+        {{/if}} 
+        {{#if record.password}}
+          <h4 class="card-subtitle">{{_ "Password"}}</h4>
+          <p class="content">{{{record.password}}}&nbsp;&nbsp;
+            <button class='btn btn-default copyPassword' data-clipboard-text='{{record.password}}' data-clipboard-action='copy' data-toggle="tooltip" data-placement="top" title={{_ "copyToClipboard"}}><span class="icon mdi mdi-copy"></span></button>
+          </p>
+        {{/if}} 
+        {{#if record.public_key}}
+          <h4 class="card-subtitle">{{_ "PublicKey"}}</h4>
+          <p class="content">{{{record.public_key}}}</p>
+        {{/if}} 
+        {{#if record.private_key}}
+          <h4 class="card-subtitle">{{_ "PrivateKey"}}</h4>
+          <p class="content">{{{record.private_key}}}</p>
+        {{/if}} 
+        {{#if record.url}}
+          <h4 class="card-subtitle">{{_ "URL"}}</h4>
+          <p class="content"><a href="{{record.url}}">{{record.url}}</a></p>
+        {{/if}} 
+        {{#if record.related}}
+        <div class="row">
+            {{#each record.related}}            
+            <!--<div class="col-lg-2 col-md-3 col-sm-6">
+              {{>App_items_card getRelatedItem this}}
+            </div>-->
+            {{/each}}
+          </div>
+        {{/if}}
+        {{#if record.notes}}
+        <h4 class="card-subtitle">{{_ "Notes"}}</h4>
+        <p class="content">{{{record.notes}}}</p>
+        {{/if}} 
+        
+        {{#if record.files}}
+          <h4 class="card-subtitle">{{_ "Files"}}</h4>
+          {{#each record.files}}
+            <a href='#' class="download" data-id={{this}}>{{getFileName this}} ({{getFileSize this}})</a><br>
+          {{/each}}
+        {{/if}}
+        {{#each record.message}} {{#if equals this.from currentUser._id}}
+        <div class="speech-bubble-left">
+          <div class="pmd-card-title">
+            <h6>{{getDisplayName this.from}}
+              <span>{{getCalendarDate this.createdAt}}</span>
+            </h6>
+          </div>
+          <div class="pmd-card-body">{{{this.body}}}</div>
+        </div>
+        {{else}}
+        <div class="speech-bubble-right">
+          <div class="pmd-card-title">
+            <h6>{{getDisplayName this.from}}
+              <span>{{getCalendarDate this.createdAt}}</span>
+            </h6>
+          </div>
+          <div class="pmd-card-body">{{{this.body}}}</div>
+        </div>
+        {{/if}} {{/each}}
+        <br>
+
+        <p class="text-right">
+            <a class="btn btn-primary btn-lg" href="{{pathFor 'App.edit' id=record._id}}"><i class="icon mdi mdi-edit"></i> {{_ "Edit"}}</a>
+            {{#if isDocOwner record.owner_id}}
+            <button class="btn btn-primary btn-lg share" data-id={{record._id}}><i class="icon mdi mdi-share"></i> {{_ "Share"}}</button>{{/if}} {{#if isDocOwner record.owner_id}}
+            {{/if}}
+          </p>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+  <div class="card" style="background-color: {{getTypeColor record.type}}; margin-top: -23px;">
+      <div class="card-body" style="padding: 0px 8px 0px 16px;">
+        <div class="row" style="width:100%;">
+          <div class="col-md-3">
+            <h5 style="margin-bottom: -.8em;"><b>{{_ "ModifiedAt"}}</b></h5>
+            <h6>{{getCalendarDate record.updatedAt}}</h6>
+          </div>
+          <div class="col-md-3">
+            <h5 style="margin-bottom: -.8em;"><b>{{_ "CreatedAt"}}</b></h5>
+            <h6>{{getCalendarDate record.createdAt}}</h6>
+          </div>
+          <div class="col-md-3">
+            <h5 style="margin-bottom: -.8em;"><b>{{_ "Owner"}}</b></h5>
+            <h6>{{getDisplayName record.owner_id}}</h6>
+          </div>
+          <div class="col-md-3">
+              <h5 style="margin-bottom: -.8em;"><b>{{_ "Collaborators"}}</b></h5>
+              <h6>{{getCollaborators record._id}}</h6>
+            </div>
+        </div>
+      </div>
+    </div>
+</template>
