@@ -1,4 +1,5 @@
 import './register.html';
+import parsley from 'parsleyjs';
 
 Template.App_register.helpers({
   notCordova: function() {
@@ -13,7 +14,6 @@ Template.App_register.events({
   'click .select-language': function() {
     var lang = $('.select-language').val();
     TAPi18n.setLanguage(lang);
-    //T9n.setLanguage(lang);
   },
   'click .terms-link': function() {
     //Modal.show('App_terms-of-use');
@@ -22,18 +22,14 @@ Template.App_register.events({
   'click .register': function(e) {
     e.preventDefault();
     var clean = $("#register").parsley().validate();
- //disable register button
-    //var l = Ladda.create( document.querySelector( '.register' ) );
 
-    //check values
-    /*var clean = true;
-    $('div').removeClass("has-error");*/
     var email = $('#email').val();
     var displayName = $('#displayName').val();
-    var terms = $('#terms:checked').val();
+    //var terms = $('#terms:checked').val();
     var password = $('#password').val();
-    var password2 = $('#password2').val();
-    var cantResetPassword = $('#cantResetPassword:checked').val();
+    //var password2 = $('#password2').val();
+    //var cantResetPassword = $('#cantResetPassword:checked').val();
+    //var enableMultiFactor = $('#enableMultiFactor').val();
 
     var language = $('.select-language').val();
 
@@ -56,16 +52,15 @@ Template.App_register.events({
           $(".register").prop("disabled",true);
           //Meteor.call('setupSupport');
           Sv.setUserKeys(password, language, displayName);
-          Meteor.call('userLogin');
-          TAPi18n.setLanguage(language);   
-          
-          Modal.show('App_user_setup');    
-      
-          //once the setup modal is hidden, generate the default items
-          $('#setup-dialog').on('hidden.bs.modal', function () {
-            generateDefaultItems(email, password);
-          });      
-          FlowRouter.go('App.all');
+          TAPi18n.setLanguage(language);  
+          Modal.show('App_user_setup');             
+          $('#setup-dialog').on('hidden.bs.modal', function () {   
+            Session.set('tmp_password', password);         
+            Session.set('tmp_email', email);
+            Session.set('tmp_set_default_items', true);
+            Session.set('runIntroJs', true);
+            FlowRouter.go('App.all');
+          });                       
         }
       });
     };

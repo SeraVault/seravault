@@ -32,6 +32,9 @@ Tags.attachSchema(Schema.Tags);
 Feedback = new Mongo.Collection('Feedback');
 Feedback.attachSchema(Schema.Feedback);
 
+BlogPosts = new Mongo.Collection('BlogPosts');
+BlogPosts.attachSchema(Schema.BlogPosts);
+
 //Meteor.users.attachSchema(Schema.User);
 
 if (Meteor.isClient) {

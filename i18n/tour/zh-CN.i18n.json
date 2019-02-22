@@ -1,0 +1,9 @@
+{
+	"addNewItems": "在这里添加新项目。项目将在您的设备上加密，然后保存。",
+	"browseByType": "按项目类型浏览解密信息",
+	"search": "搜索您的解密信息",
+	"inviteContacts": "邀请联系人，以便您可以安全地与他们共享信息",
+	"manageProfile": "更改您的帐户设置，包括语言，公共名称，密码，电子邮件地址或计划",
+	"notificationIntro": "共享项目或共享请求的更新将显示在通知区域中",
+	"ReplayIntro": "重播简介"
+}

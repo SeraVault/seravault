@@ -18,7 +18,9 @@ SvUtils = {
     return encryptedMessage;
   },
   symDecryptWithKey: function (cipher, nonce, key) {
-    //console.log('sv cipher:', cipher);
+    /*console.log('CIPHER', cipher);
+    console.log('NONCE', nonce);
+    console.log('KEY', key);*/
     var returnAsString = _.isString(cipher);
     if (returnAsString) {
       cipher = naclutil.decodeBase64(cipher);

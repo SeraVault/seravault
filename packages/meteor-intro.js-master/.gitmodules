@@ -1,0 +1,3 @@
+[submodule "lib/intro.js"]
+	path = lib/intro.js
+	url = https://github.com/aramix/intro.js.git

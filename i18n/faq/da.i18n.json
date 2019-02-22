@@ -1,0 +1,12 @@
+{
+	"faq_hacked1": "Hvad ville der ske, hvis Seravault nogensinde blev hacket?",
+	"faq_hacked_text1": "Dine data krypteres ved hjælp af en nøgle, der er krypteret ved hjælp af dit kodeord. Seravault kender ikke din adgangskode, så et hack vil aldrig afsløre dit kodeord. Da dine data er krypteret med din password-nonce-krypterede private nøgle, er dit kodeord nødvendigt for at dekryptere dine data. Ingen hacker vil nogensinde få dit kodeord fra Seravault.",
+	"faq_end-to-end": "Hvad er end-to-end kryptering?",
+	"faq_end-to-end_text": "End-to-end-kryptering er beregnet til at forhindre, at data læses eller hemmeligt ændres, bortset fra den sande afsender og modtager (e). Beskederne krypteres af afsenderen, men tredjepart har ikke midler til at dekryptere dem og gemmer dem krypteret. Modtageren henter de krypterede data og dekrypterer det selv.",
+	"faq_lost-password": "Hvad hvis jeg mister mit kodeord?",
+	"faq_lost-password_text": "Undskyld, du er ude af lykke. Seravault lagrer ikke dit kodeord og kan ikke nulstille det uden tab af alle data. Pas på, at du aldrig mister dit kodeord!",
+	"faq_sharing": "Hvordan deler arbejde? Ville min partner ikke have min nøgle?",
+	"faq_sharing_text": "Nej. Hvert element i Seravault er krypteret ved hjælp af en unik nøgle. Denne nøgle krypteres derefter ved hjælp af din offentlige nøgle. Hvis du deler, er elementets nøgle også krypteret med din partners offentlige nøgle. Det vigtige at bemærke her er, at genstanden kun kan dekrypteres af dem, der stiller de private nøgler ... dig og de mennesker, som du delte med.",
+	"faq_integration": "Seravault udfylder ikke mine adgangskoder i min browser!",
+	"faq_integration_text": "Nej det gør det ikke Seravault er ikke den slags værktøj. Seravault værdsætter sikkerheden for dine oplysninger, og da vi ikke kan garantere sikkerheden ved automatisk udfyldning, gør vi det ikke. Seravault er beregnet til at være en sikker låsekasse, hvor du kan gemme, hente og dele oplysninger ... med minimale angrebsvektorer."
+}

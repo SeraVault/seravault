@@ -9,7 +9,7 @@
               <li class="divider">{{_ "Menu"}}</li>
               <!--<li><a href="{{pathFor 'App.dashboard'}}" class="close-sidebar"><i class="icon mdi mdi-home"></i><span>{{_ "Dashboard"}}</span></a>
               </li>-->
-              <li class="parent open">
+              <li class="parent open" data-step="2" data-intro="{{_ 'browseByType'}}">
                 <a href="">
                   {{{getTypeIconFullHTML 'allItems'}}}
                   <span>{{_ "DecryptedItems"}}</span>
@@ -36,9 +36,9 @@
                   <!--<li style="padding-left: 10px;"><a href="{{pathFor 'App.files'}}" class="close-sidebar"><i class="icon mdi mdi-file"></i><span>{{_ "Files"}}</span></a>
                     </li>-->
                   <li>
-                    <a href="{{pathFor 'App.keys'}}" class="close-sidebar">
-                      {{{getTypeIconFullHTML 'key'}}}
-                      <span>{{_ "Keys"}}</span>
+                    <a href="{{pathFor 'App.credit_cards'}}" class="close-sidebar">
+                      {{{getTypeIconFullHTML 'credit_card'}}}
+                      <span>{{_ "CreditCards"}}</span>
                     </a>
                   </li>
                   <li>
@@ -48,9 +48,15 @@
                     </a>
                   </li>
                   <li>
+                    <a href="{{pathFor 'App.keys'}}" class="close-sidebar">
+                      {{{getTypeIconFullHTML 'key'}}}
+                      <span>{{_ "Keys"}}</span>
+                    </a>
+                  </li>
+                  <li>
                     <a href="{{pathFor 'App.files'}}" class="close-sidebar">
                       {{{getTypeIconFullHTML 'file'}}}
-                      <span>{{_ "Files"}}</span>
+                      <span>{{_ "FileSets"}}</span>
                     </a>
                   </li>
 
@@ -74,7 +80,7 @@
                         </a>
                       </li>
                       {{/each}}
-                      {{#if folders}} 
+                      {{#if folders}}
 
                       {{/if}}
                     </ul>
@@ -82,8 +88,7 @@
                 </ul>
               </li>
 
-
-              <li class="parent">
+              <li class="parent" data-step="4" data-intro="{{_ 'inviteContacts'}}">
                 <a href="{{pathFor "App.contacts"}}">
                   <i class="icon mdi mdi-accounts-list"></i>
                   <span>{{_ "Contacts"}}</span>
@@ -98,41 +103,76 @@
                   <li>
                     <a href="{{pathFor 'App.contacts.sent'}}" class="close-sidebar">{{_ "SentInvites"}}</a>
                   </li>
+                  <li>
+                    <a href="{{pathFor 'App.contacts.invite'}}" class="close-sidebar">{{_ "AddContact"}}</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="parent">
+                <a href=" #">
+                  <i class="icon mdi mdi-pin-help"></i>
+                  <span>{{_ "Help"}}</span>
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="#" class="replay-intro">{{_ "ReplayIntro"}}</a>
+                  </li>
+                  <li>
+                    <a href="{{pathFor 'App.contact_us'}}" class="close-sidebar">{{_ "ContactUs"}}</a>
+                  </li>
                 </ul>
               </li>
 
-              {{#if isInRole 'wheel' 'global-group'}}
-              <li>
-                <a href="{{pathFor "Admin.utils"}}">
+              <li data-step="5" data-intro="{{_ 'manageProfile'}}">
+                <a href="{{pathFor 'App.user.profile'}}" class="close-sidebar"><span class="icon mdi mdi-face"></span>
+                  {{_ "Profile"}}</a>
+              </li>
+
+
+              {{#if isInRole 'blogAuthor' 'global-group'}}
+              <li class="parent open">
+                <a href="#">
                   <i class="icon mdi mdi-settings"></i>
-                  <span>{{_ "Settings"}}</span>
-                </a>                
+                  <span>{{_ "Admin"}}</span>
+                </a>
+                <ul class="sub-menu">
+                  {{#if isInRole 'blogAuthor' 'global-group'}}
+                  <li>
+                    <a href="{{pathFor 'Admin.posts'}}" class="close-sidebar">{{_ "Blog"}}</a>
+                  </li>
+                  {{/if}}
+                </ul>
               </li>
               {{/if}}
 
             </ul>
+            <div class="progress-widget data-usage">
+              <div class="progress-data">
+                <span class="progress-value">{{getPlanUsage}}%</span>
+                <span class="name">{{_ "PlanLimit"}}</span>
+              </div>
+              <div class="progress">
+                <div style="width:{{getPlanUsage}}%;" class="progress-bar progress-bar-primary"></div>
+              </div>
+              <br>
+              <div class="progress-data">
+                <span class="progress-value">{{getDiskUsage}}%</span>
+                <span class="name">{{_ "StorageUsage"}}</span>
+              </div>
+              <div class="progress">
+                <div style="width:{{getDiskUsage}}%;" class="progress-bar progress-bar-primary"></div>
+              </div>
+              <br>
+              <p style="font-size:0.7em">{{{getCopyright}}}</p>
+
+            </div>
           </div>
         </div>
+
       </div>
       <br>
-      <div class="progress-widget data-usage">
-        <div class="progress-data">
-          <span class="progress-value">{{getPlanUsage}}%</span>
-          <span class="name">{{_ "PlanLimit"}}</span>
-        </div>
-        <div class="progress">
-          <div style="width:{{getPlanUsage}}%;" class="progress-bar progress-bar-primary"></div>
-        </div>
-        <br>
-        <div class="progress-data">
-          <span class="progress-value">{{getDiskUsage}}%</span>
-          <span class="name">{{_ "StorageUsage"}}</span>
-        </div>
-        <div class="progress">
-          <div style="width:{{getDiskUsage}}%;" class="progress-bar progress-bar-primary"></div>
-        </div>
-      </div>
+
+
     </div>
   </div>
-
 </template>

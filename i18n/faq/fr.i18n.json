@@ -1,0 +1,12 @@
+{
+	"faq_hacked1": "Que se passerait-il si Seravault se faisait pirater?",
+	"faq_hacked_text1": "Vos données sont cryptées à l'aide d'une clé cryptée à l'aide de votre mot de passe. Seravault ne connaît pas votre mot de passe, un piratage ne le révélera jamais. Puisque vos données sont cryptées à l'aide de votre clé privée cryptée par mot de passe, votre mot de passe est nécessaire pour décrypter vos données. Aucun pirate informatique ne pourra jamais obtenir votre mot de passe de Seravault.",
+	"faq_end-to-end": "Qu'est-ce que le cryptage de bout en bout?",
+	"faq_end-to-end_text": "Le cryptage de bout en bout est destiné à empêcher la lecture ou la modification secrète de données, autrement que par l'expéditeur et le ou les destinataires véritables. Les messages sont chiffrés par l'expéditeur, mais le tiers n'a pas les moyens de les déchiffrer et les stocke sous forme chiffrée. Le destinataire récupère les données cryptées et les déchiffre elles-mêmes.",
+	"faq_lost-password": "Et si je perds mon mot de passe?",
+	"faq_lost-password_text": "Désolé, vous n'avez pas de chance. Seravault ne stocke pas votre mot de passe et ne peut pas le réinitialiser sans perte de toutes les données. Attention à ne jamais perdre votre mot de passe!",
+	"faq_sharing": "Comment fonctionne le partage? Mon partenaire n'aurait-il pas besoin de ma clé?",
+	"faq_sharing_text": "Non. Chaque élément de Seravault est crypté à l’aide d’une clé unique. Cette clé est ensuite cryptée à l'aide de votre clé publique. Si vous partagez des informations, la clé de l'élément est également cryptée avec la clé publique de vos partenaires. La chose importante à noter ici est que l'élément ne peut être déchiffré que par ceux qui possèdent les clés privées ... vous et les personnes avec lesquelles vous avez partagé.",
+	"faq_integration": "Seravault ne remplit pas mes mots de passe dans mon navigateur!",
+	"faq_integration_text": "Non, ça ne va pas. Seravault n'est pas ce genre d'outil. Seravault attache une grande importance à la sécurité de vos informations et, comme nous ne pouvons pas garantir la sécurité de la saisie automatique, nous ne le faisons pas. Seravault est censé être un coffre-fort sécurisé où vous pouvez stocker, récupérer et partager des informations ... avec un minimum de vecteurs d'attaque."
+}

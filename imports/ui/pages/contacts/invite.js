@@ -10,5 +10,8 @@ Template.App_contact_invite.events({
         FlowRouter.go('App.contacts.sent');
       }
     })
+  },
+  'click .cancel': function() {
+    history.back();
   }
 })

@@ -737,7 +737,10 @@ pre {
 .offset-11 {
   margin-left: 91.66667%; }
 
-@media (min-width: 576px) {
+
+
+
+@media (min-width: 576px) {  
   .col-sm {
     -webkit-flex-basis: 0;
         -ms-flex-preferred-size: 0;
@@ -7433,4 +7436,17 @@ a.text-dark:hover, a.text-dark:focus {
 .btn-super-big {
   height: 200px;
   width: 800px;
+}
+
+.sv-logo-image {
+  display: block;
+  background: url("/img/seravault_logo.svg") no-repeat;
+  /*width: 180px;
+  height: 236px; 
+  padding-left: */        
+  width: 400px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  
 }

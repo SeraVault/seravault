@@ -1,0 +1,9 @@
+{
+	"addNewItems": "Añadir nuevos elementos aquí. Los elementos se cifrarán en su dispositivo y luego se guardarán.",
+	"browseByType": "Navega por tu información desencriptada por tipo de artículo",
+	"search": "Busca tu información desencriptada",
+	"inviteContacts": "Invita contactos para que puedas compartir información de forma segura con ellos",
+	"manageProfile": "Cambie la configuración de su cuenta, incluido el idioma, el nombre público, la contraseña, la dirección de correo electrónico o el plan",
+	"notificationIntro": "Las actualizaciones de los elementos compartidos o las solicitudes de uso compartido se mostrarán aquí en el área de notificaciones.",
+	"ReplayIntro": "Repetir Intro"
+}

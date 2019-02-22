@@ -62,6 +62,23 @@ Notifications.allow({
   }
 });
 
+BlogPosts.allow( {
+    insert: function(userId, doc) {        
+        if (Roles.userIsInRole(userId, ['blogAuthor'], 'global-group')) {
+            return true;
+        }
+    },
+    update: function(userId, doc) {
+        if (Roles.userIsInRole(userId, ['blogAuthor'], 'global-group')) {
+            return true;
+        }
+    },
+    remove: function(userId, doc) {
+        if (Roles.userIsInRole(userId, ['blogAuthor'], 'global-group')) {
+            return true;
+        }
+    },    
+})
 
 
 

@@ -43,6 +43,88 @@ Schema.Items = new SimpleSchema({
     type: String,
     optional: true,    
   },
+  cardholder_name: {
+    type: String,
+    optional: true
+  },
+  card_type: {
+    type: String,
+    optional: true,
+    autoform: {
+      type: 'select2',
+      multiple: false,
+      options: [
+        {value: 'Visa', label: 'Visa'},
+        {value: 'MasterCard', label: 'MasterCard'},
+        {value: 'American Express', label: 'American Express'},
+        {value: 'Diners Club', label: 'Diners Club'},
+        {value: 'Discover', label: 'Discover'},
+        {value: 'JCB', label: 'JCB'},
+        {value: 'UnionPay', label: 'UnionPay'},
+        {value: 'Maestro', label: 'Maestro'},
+        {value: 'Elo', label: 'Elo'},
+        {value: 'Mir', label: 'Mir'},
+        {value: 'Hiper', label: 'Hiper'},
+        {value: 'Hipercard', label: 'Hipercard'},
+      ]
+    }
+  },
+  card_number: {
+    type: String,
+    optional: true
+  },
+  security_code: {
+    type: String,
+    optional: true
+  },
+  
+  card_month: {
+    type: String,
+    optional: true,
+    autoform: {
+      type: 'select2',
+      multiple: false,
+      options: 
+        [
+          {value: '01', label: '01'},
+          {value: '02', label: '02'},
+          {value: '03', label: '03'},
+          {value: '04', label: '04'},
+          {value: '05', label: '05'},
+          {value: '06', label: '06'},
+          {value: '07', label: '07'},
+          {value: '08', label: '08'},
+          {value: '09', label: '09'},
+          {value: '10', label: '10'},
+          {value: '11', label: '11'},
+          {value: '12', label: '12'}
+        ]
+      }
+  },
+  card_year: {
+    type: String,
+    optional: true,
+    autoform: {
+      type: 'select2',
+      multiple: false,
+      options: 
+        [
+          {value: '2018', label: '2018'},
+          {value: '2019', label: '2019'},
+          {value: '2020', label: '2020'},
+          {value: '2021', label: '2021'},
+          {value: '2022', label: '2022'},
+          {value: '2023', label: '2023'},
+          {value: '2024', label: '2024'},
+          {value: '2025', label: '2025'},
+          {value: '2026', label: '2026'},
+          {value: '2027', label: '2027'},
+          {value: '2028', label: '2028'},
+          {value: '2029', label: '2029'},
+          {value: '2030', label: '2030'}
+        ]
+      }
+  },
   notes: {
     type: String,
     optional: true,
@@ -376,6 +458,12 @@ Schema.UserSettings = new SimpleSchema({
       }
     }
   },
+  'mail': {
+    type: Object
+  },
+  'mail.inbox': {
+    type: Object
+  },
   'mail.inbox.read': {
     type: Array
   },
@@ -468,7 +556,76 @@ Schema.Notifications = new SimpleSchema({
   }
 });
 
-
+Schema.BlogPosts = new SimpleSchema({
+  author: {
+    type: String
+  },
+  canonical_name: {
+    type: String
+  },
+  status: {
+    type: String,
+    autoform: {
+      type: 'select2',
+      multiple: false,
+      options: 
+        [
+          {value: 'active', label: 'Active'},
+          {value: 'draft', label: 'Draft'}
+        ]
+      }
+  },
+  title: {
+    type: String
+  },
+  summary: {
+    type: String
+  },
+  article: {
+    type: String,
+    autoform: {
+      afFieldInput: {
+        type: 'summernote'     
+      }
+    }
+  },
+  meta_description: {
+    type: String,
+    optional: true
+  },
+  meta_keywords: {
+    type: String,
+    optional: true
+  },
+  createdAt: {
+    type: Date,
+    optional: true,
+    autoform: {
+      type: 'hidden'
+    },
+    autoValue: function() {
+      if (this.isInsert) {
+        return new Date();
+      } else if (this.isUpsert) {
+        return {$setOnInsert: new Date()};
+      } else {
+        this.unset();  // Prevent user from supplying their own value
+      }
+    }
+  },
+  updatedAt: {
+    type: Date,
+    optional: true,
+    autoform: {
+      type: 'hidden'
+    },
+    autoValue: function() {
+      if (this.isUpdate) {
+        return new Date();
+      }
+    }    
+  },
+});
 
 
 

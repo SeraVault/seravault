@@ -21,21 +21,21 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <input type="email" id="email" required="" placeholder={{_ "Email"}} autocomplete="off" class="form-control" data-parsley-required-message={{_ "InvalidEmail"}}>
+                    <input type="email" id="email" required="" placeholder={{_ "Email"}} autocomplete="off" class="form-control" data-parsley-trigger="change" data-parsley-type="email" data-parsley-required-message={{_ "fieldRequired"}} data-parsley-type-message={{_ "invalidEmail"}}>
                   </div>
                   <div class="form-group">
                     <input type="text" id="displayName" required="" class="form-control" placeholder={{_ "DisplayNamePlaceholder"}} data-parsley-required-message={{_ "PublicNameRequired"}}>
                   </div>
 
                   <div class="form-group">
-                    <input type="text" id="password" class="form-control" required="" placeholder={{_ "Password"}}>
-                    <input type="text" id="password2" class="form-control" required="" placeholder={{_ "PasswordAgain"}} data-parsley-equalto="#password" data-parsley-equalto-message={{_ "PassphraseMatchError"}}>
+                    <input type="password" id="password" class="form-control" required="" placeholder={{_ "Password"}}>
+                    <input type="password" id="password2" class="form-control" required="" placeholder={{_ "PasswordAgain"}} data-parsley-equalto="#password" data-parsley-equalto-message={{_ "PassphraseMatchError"}}>
                   </div>
 
                   <div role="alert" class="alert alert-primary alert-icon">
                     <div class="icon"><span class="mdi mdi-info-outline"></span></div>
                     <div class="message">
-                      {{{_ "passphraseInfo0"}}} <br> {{{_ "passphraseInfo1"}}} <br> {{{_ "passphraseInfo2"}}} <br> {{{_ "passphraseInfo3"}}} <br> {{{_ "passphraseInfo4"}}}
+                      {{{_ "passphraseInfo0"}}} <br> {{{_ "passphraseInfo1"}}} <br> {{{_ "passphraseInfo2"}}}
                     </div>
                   </div>
                   <div role="alert" class="alert alert-danger alert-icon">
@@ -44,6 +44,7 @@
                       <strong> {{{_ "passphraseWarning0"}}} </strong> {{{_ "passphraseWarning1"}}} <br> {{{_ "passphraseWarning2"}}}
                     </div>
                   </div>
+         
                   <div class="form-group">
                     <label class="custom-control custom-checkbox">
                       <input type="checkbox" class="custom-control-input terms-value" id="terms" value="accepted" data-parsley-mincheck="1" required  data-parsley-required-message={{_ "MustAcceptTerms"}}><span class="custom-control-label">{{_ "iveReadAndAgreeTo"}} <u class="terms-link">{{_ "theTermsAndConditions"}}</u></span>
@@ -70,6 +71,5 @@
         </div>
       </div>
     </div>
-    {{> App_terms}}
   </body>
 </template>

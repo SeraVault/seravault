@@ -28,26 +28,6 @@ bytesToSize = function(bytes) {
     return `${(bytes / (1024 ** i)).toFixed(1)} ${sizes[i]}`
   };
 
-// Opera 8.0+
-isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
-
-// Firefox 1.0+
-isFirefox = typeof InstallTrigger !== 'undefined';
-
-// Safari 3.0+ "[object HTMLElementConstructor]" 
-isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && safari.pushNotification));
-
-// Internet Explorer 6-11
-isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-// Edge 20+
-isEdge = !isIE && !!window.StyleMedia;
-
-// Chrome 1+
-isChrome = !!window.chrome && !!window.chrome.webstore;
-
-// Blink engine detection
-isBlink = (isChrome || isOpera) && !!window.CSS;
 
 roughSizeOfObjectInMB = function( object ) {
 
@@ -83,7 +63,72 @@ roughSizeOfObjectInMB = function( object ) {
     return bytes * 0.000001;
 }
 
+applySaturationToHexColor = function(hex, saturationPercent) {
+    if (!/^#([0-9a-f]{6})$/i.test(hex)) {
+        throw('Unexpected color format');
+    }
 
+    if (saturationPercent < 0 || saturationPercent > 100) {
+        throw('Unexpected color format');
+    }
+
+    var saturationFloat   = saturationPercent / 100,
+        rgbIntensityFloat = [
+            parseInt(hex.substr(1,2), 16) / 255,
+            parseInt(hex.substr(3,2), 16) / 255,
+            parseInt(hex.substr(5,2), 16) / 255
+        ];
+
+    var rgbIntensityFloatSorted = rgbIntensityFloat.slice(0).sort(function(a, b){ return a - b; }),
+        maxIntensityFloat       = rgbIntensityFloatSorted[2],
+        mediumIntensityFloat    = rgbIntensityFloatSorted[1],
+        minIntensityFloat       = rgbIntensityFloatSorted[0];
+
+    if (maxIntensityFloat == minIntensityFloat) {
+        // All colors have same intensity, which means 
+        // the original color is gray, so we can't change saturation.
+        return hex;
+    }
+
+    // New color max intensity wont change. Lets find medium and weak intensities.
+    var newMediumIntensityFloat,
+        newMinIntensityFloat = maxIntensityFloat * (1 - saturationFloat);
+
+    if (mediumIntensityFloat == minIntensityFloat) {
+        // Weak colors have equal intensity.
+        newMediumIntensityFloat = newMinIntensityFloat;
+    }
+    else {
+        // Calculate medium intensity with respect to original intensity proportion.
+        var intensityProportion = (maxIntensityFloat - mediumIntensityFloat) / (mediumIntensityFloat - minIntensityFloat);
+        newMediumIntensityFloat = (intensityProportion * newMinIntensityFloat + maxIntensityFloat) / (intensityProportion + 1);
+    }
+
+    var newRgbIntensityFloat       = [],
+        newRgbIntensityFloatSorted = [newMinIntensityFloat, newMediumIntensityFloat, maxIntensityFloat];
+
+    // We've found new intensities, but we have then sorted from min to max.
+    // Now we have to restore original order.
+    rgbIntensityFloat.forEach(function(originalRgb) {
+        var rgbSortedIndex = rgbIntensityFloatSorted.indexOf(originalRgb);
+        newRgbIntensityFloat.push(newRgbIntensityFloatSorted[rgbSortedIndex]);
+    });
+
+    var floatToHex = function(val) { return ('0' + Math.round(val * 255).toString(16)).substr(-2); },
+        rgb2hex    = function(rgb) { return '#' + floatToHex(rgb[0]) + floatToHex(rgb[1]) + floatToHex(rgb[2]); };
+
+    var newHex = rgb2hex(newRgbIntensityFloat);
+
+    return newHex;
+}
+
+hexContrast = (hexcolor) => {
+    var r = parseInt(hexcolor.substr(0,2),16);
+	var g = parseInt(hexcolor.substr(2,2),16);
+	var b = parseInt(hexcolor.substr(4,2),16);
+	var yiq = ((r*299)+(g*587)+(b*114))/1000;
+	return (yiq >= 128) ? 'black' : 'white';
+};
 
 
 

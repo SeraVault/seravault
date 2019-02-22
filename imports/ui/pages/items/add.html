@@ -8,6 +8,7 @@
           <fieldset>
             <div class="form-group">
               <label for="title" class="control-label">
+                <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
                 {{_ "Title"}}
               </label>
               {{>afFieldInput name="title"}}
@@ -21,6 +22,9 @@
             {{/if}}
             {{#if equals itemType 'key'}}
             {{> App_keys_fieldset}}
+            {{/if}}
+            {{#if equals itemType 'credit_card'}}
+            {{> App_creditcard_fieldset}}
             {{/if}}
             {{#if equals itemType 'file'}}
             <div class="card card-contrast card-full-primary">
@@ -40,14 +44,18 @@
             {{else}}
             <div id="share"></div>
             <div class="card card-contrast card-full-success">
-              <div class="card-header">{{_ "addCollaboratorsTo"}} {{_ "thisItem"}}
+              <div class="card-header">{{_ "addCollaborators"}}
                 <span class="icon mdi share pull-right" style="font-size: 50px;margin-top:-20px;"></span>
               </div>
               <div class="card-body">
-                <h5>{{_ "shareText"}}</h5>
                 {{#if noContacts}}
-                <h5 class="text-info">{{_ "noContacts" sharingCode}}</h5>
-                {{else}} {{>afFieldInput name="recipients" style="width:100%;"}} {{/if}}
+                <h3>{{_ "noContacts"}}</h3>
+                <h4>{{_ "noContactsMore0" sharingCode}}<br>{{_ "noContactsMore1"}}</h4>
+                {{else}}
+                <h4>{{_ "shareText"}}</h4>
+                {{>afFieldInput name="recipients" style="width:100%;"}}
+                {{/if}}
+                {{> emailInvite}}
               </div>
             </div>
             {{/if}}

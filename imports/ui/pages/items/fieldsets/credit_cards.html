@@ -1,0 +1,68 @@
+<template name="App_creditcard_fieldset">
+  <div class="form-group">
+    <label for="cardholder_name" class="control-label">
+      <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+      {{_ "CardHolderName"}}
+    </label>
+    <div class="input-group mb-3">
+      {{>afFieldInput name="cardholder_name" class="form-control"}}      
+    </div>
+    <span class="help-block">{{{afFieldMessage name="cardholder_name"}}}</span>
+  </div>
+
+  <div class="form-group">
+    <label for="card_type" class="control-label">
+        <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+        {{_ "CardType"}}
+    </label>
+    <div class="input-group mb-3">
+      {{>afFieldInput name="card_type" class="form-control"}}      
+    </div>
+    <span class="help-block">{{{afFieldMessage name="card_type"}}}</span>
+  </div>
+
+
+  <div class="form-group">
+    <label for="card_number" class="control-label">
+        <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+        {{_ "CardNumber"}}
+    </label>
+    <div class="input-group mb-3">
+      {{>afFieldInput name="card_number" class="form-control"}}      
+    </div>
+    <span class="help-block">{{{afFieldMessage name="card_number"}}}</span>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <label for="card_month" class="control-label">
+        <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+        {{_ "CardMonth"}}
+      </label>
+      <div class="input-group mb-3">
+          {{>afFieldInput name="card_month" class="form-control"}}      
+      </div>
+      <span class="help-block">{{{afFieldMessage name="card_month"}}}</span>
+    </div>
+    <div class="col-md-6">
+      <label for="card_year" class="control-label">
+        <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+        {{_ "CardYear"}}
+      </label>
+      <div class="input-group mb-3">
+          {{>afFieldInput name="card_year" class="form-control"}}      
+      </div>
+      <span class="help-block">{{{afFieldMessage name="card_year"}}}</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="security_code" class="control-label">
+      <span class="icon mdi mdi-lock-outline" data-toggle="tooltip" data-placement="top" title={{_ "thisFieldEncrypted"}}></span>&nbsp;
+      {{_ "SecurityCode"}}
+    </label>
+    <div class="input-group mb-3">
+        {{>afFieldInput name="security_code" class="form-control"}}       
+      </div>
+  </div>  
+</template>

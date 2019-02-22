@@ -3,6 +3,10 @@ import './home.html';
 Template.App_home.helpers({
   isNotCordova: function() {
     return !Meteor.isCordova;
+  },
+  isPhoneSize: function() {
+    //console.log(window.innerWidth);
+    return (window.innerWidth < 576);
   }
 })
 

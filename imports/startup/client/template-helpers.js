@@ -41,7 +41,7 @@ getTypeIcon = function (type) {
       icon = 'mdi-key';
       break;
     case "file":
-      icon = 'mdi-file';
+      icon = 'mdi-download';
       break;
     case "folder":
       icon = 'mdi-folder';
@@ -65,12 +65,78 @@ getTypeIcon = function (type) {
       icon = "mdi-storage";
       break;
     case "allItems":
-      icon = "mdi-folder-star-alt";
+      icon = "mdi-lock-open";
       break;
     case "profile":
       icon = "mdi-face";
+      break;
+    case "credit_card":
+      icon = "mdi-card";
+      break;
   }
   return icon;
+};
+
+getTypeColor = function(type) {
+  var color = null;
+
+  var lightGreenishBlue = "#55efc4";
+  var fadedPoster = "#81ecec";
+  var greenDarnerTrail = "#74b9ff";
+  var shyMoment = "#a29bfe";
+  var cityLights = "#dfe6e9";
+  var mintLeaf = "#00b894";
+  var robinEggBlue = "#00cec9";
+  var electronBlue = "#0984e3";
+  var exodusFruit = "#6c5ce7";
+  var soothingBreeze = "#b2bec3";
+  var sourLemon = "#ffeaa7";
+  var firstDate = "#fab1a0";
+  var pinkGlamour = "#ff7675";
+  var piko8Pink = "#fd79a8";
+  var americanRiver = "#636e72";
+  var brightYarrow = "#fdcb6e";
+  var orangeVille = "#e17055";
+  var chiGong = "#d63031";
+  var prunusAviaum = "#e84393";
+  var draculaOrchid = "#2d3436";
+
+  switch (type) {
+    case "account":
+      color = lightGreenishBlue;
+      break;
+    case "note":
+      color = shyMoment;
+      break;
+    case "key":
+      color = electronBlue;
+      break;
+    case "folder":
+      color = exodusFruit;
+      break;
+    case "message":
+      color = sourLemon;
+      break;
+    case "credit_card":
+      color = pinkGlamour;
+      break;
+    case "file":
+      color = americanRiver;
+      break;
+    case "sharing":
+      color = greenDarnerTrail;
+      break;
+    case "multifactor":
+      color = mintLeaf;
+      break;
+    case "silver": 
+      color= soothingBreeze;
+      break;
+    case "gold": 
+      color = brightYarrow;
+      break;
+  }
+  return color;
 };
 
 Template.registerHelper('getCollaborators', (id) => {
@@ -118,7 +184,7 @@ Template.registerHelper('isDocOwner', (userId) => {
 });
 
 Template.registerHelper('getPlanUsage', function () {
-  var itemCount = Items && Items.find().count();
+  var itemCount = Items && Items.find({owner_id: Meteor.userId()}).count();
   var planCount = plan() && plan().items;
   return Math.ceil((itemCount / planCount) * 100);
 });
@@ -126,7 +192,7 @@ Template.registerHelper('getPlanUsage', function () {
 Template.registerHelper('getDiskUsage', function() {
   var diskTotal = 0;
   var planDisk = plan() && plan().disk;
-  Files.find().forEach(function(data){
+  Files.find({userId: Meteor.userId()}).forEach(function(data){
     diskTotal = diskTotal + data.size;
   });
   return Math.ceil((diskTotal / planDisk) * 100);
@@ -178,53 +244,28 @@ Template.registerHelper('isCordova', function () {
 });
 
 Template.registerHelper('getTypeColor', (type) => {
-  var color = null;
+  return getTypeColor(type);
+});
 
-  //dark: 51ffdc-89f3ff-adcbff-dcbaff-fffbaa
-  //light: bffff2-d4faff-d9e6ff-efdfff-fffce0
-  switch (type) {
-    case "account":
-      color = "#51ffdc";
-      break;
-    case "note":
-      color = "#89f3ff";
-      break;
-    case "key":
-      color = "#adcbff";
-      break;
-    case "folder":
-      color = "	#dcbaff";
-      break;
-    case "message":
-      color = "	#fffbaa";
-      break;
-  }
-  return color;
+Template.registerHelper('getSaturatedColor', function(type, saturationPercent) {
+  var color = getTypeColor(type);
+  var backColor = applySaturationToHexColor(color, saturationPercent);
+  return backColor;
+});
+
+Template.registerHelper('getTypeFontColor', function(type) {
+  var color = getTypeColor(type);
+  var fontColor = hexContrast(color);
+  console.log('fontcolor:', fontColor);
+  return fontColor;
 })
 
-Template.registerHelper('getTypeColorLight', (type) => {
-  var color = null;
+Template.registerHelper('noContacts', () => {
+  return Contacts.find().count() == 1;  //each user has themself as a contact
+});
 
-  //dark: 51ffdc-89f3ff-adcbff-dcbaff-fffbaa
-  //light: bffff2-d4faff-d9e6ff-efdfff-fffce0
-  switch (type) {
-    case "account":
-      color = "#bffff2";
-      break;
-    case "note":
-      color = "#d4faff";
-      break;
-    case "key":
-      color = "#d9e6ff";
-      break;
-    case "folder":
-      color = "	#efdfff";
-      break;
-    case "message":
-      color = "	#fffce0";
-      break;
-  }
-  return color;
+Template.registerHelper('sharingCode', () => {
+  return Meteor.user() && Meteor.user().profile.sharing_code;  //each user has themself as a contact
 });
 
 Template.registerHelper('showSpinner', function() {

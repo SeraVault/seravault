@@ -6,12 +6,12 @@ AppPlans.define('silver', {
   services: [
     {
       name: 'stripe', // External plan is on Stripe
-      planName: 'silver', // External plan ID is "silver"
+      planName: 'plan_DNnRirO1Gc9OyI', //'sv-silver' External plan ID is "silver"
       // Options for the Stripe Checkout flow on the client
       payOptions: {
-        name: 'Silver Plan',
+        name: 'Seravault Silver Plan',
         description: '$9.99/year',
-        amount: 9.99
+        amount: 999
       }
     }
   ],
@@ -22,10 +22,10 @@ AppPlans.define('gold', {
   services: [
     {
       name: 'stripe', // External plan is on Stripe
-      planName: 'gold', // External plan ID is "silver"
+      planName: 'plan_DNnS5Uy2va8SBg', // 'sv-gold' External plan ID is "silver"
       // Options for the Stripe Checkout flow on the client
       payOptions: {
-        name: 'Gold Plan',
+        name: 'Seravault Gold Plan',
         description: '$19.99/year',
         amount: 1999
       }
@@ -37,19 +37,19 @@ AppPlans.define('gold', {
 plan = function() {
   if (AppPlans.hasAccess("gold")) {
     return {
-      items: 10000,
+      items: 1500,
       disk: 21474836480 //20gb
     };
   }
   if (AppPlans.hasAccess("silver")) {
     return {
-      items: 1000,
+      items: 500,
       disk: 10737418240 //10gb
     };
   }
   if (AppPlans.hasAccess('free')) {
     return {
-      items: 50,
+      items: 20,
       disk: 52428800 //50mb
     };
   }

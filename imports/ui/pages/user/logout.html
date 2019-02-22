@@ -1,13 +1,35 @@
 <template name="App_user_logout">
 
-{{#if currentUser}}
-<h2>Logging out...</h2>
-{{#else}}
-<h1>You are now logged out</h1>
-
-<a class="btn btn-lg pmd-btn-raised btn-primary btn-block pmd-ripple-effect login" href={{pathFor 'App.login'}}>Login</a>
-{{/if}}
-
-
-
+    <body class="be-splash-screen">
+        <div class="be-wrapper be-login">
+            <div class="be-content">
+                <div class="main-content container-fluid">
+                    <div class="splash-container">
+                        <div class="card card-border-color card-border-color-primary">
+                            <div class="card-header seravault-login-header"><img src="/img/seravault_logo.svg" alt="logo"
+                                    width="80%" class="logo-img seravault-background-color"><span class="splash-description">{{_
+                                    "Slogan"}}</span></div>
+                            <div class="card-body">
+                                <h1 style="text-align: center;">{{_ "LoggedOut"}}</h1>
+                                <hr />                                
+                                <div role="alert" class="alert alert-success alert-icon">
+                                        <div class="icon"><span class="mdi mdi-info-outline"></span></div>
+                                        <div class="message">
+                                          {{_ "DataCleared"}}
+                                        </div>
+                                      </div>
+                                <div role="alert" class="alert alert-danger alert-icon">
+                                    <div class="icon"><span class="mdi mdi-close-circle-o"></span></div>
+                                    <div class="message">
+                                        {{_ "DownloadedFiles"}}
+                                    </div>
+                                </div>
+                                <a class="btn btn-block btn-success btn-lg" href={{pathFor 'App.login'}}>{{_ "Login"}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </template>

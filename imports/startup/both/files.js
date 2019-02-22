@@ -7,31 +7,12 @@ Files = new FilesCollection({
         var month = dateObj.getUTCMonth() + 1; //months from 1-12
         var day = dateObj.getUTCDate();
         var year = dateObj.getUTCFullYear();
-        return Meteor.settings.private.fileStoragePath + year + '/' + month + '/' + day;
+        var path = Meteor.settings.private && Meteor.settings.private.fileStoragePath || '~/';
+        return path + year + '/' + month + '/' + day;
     },
     onBeforeUpload(file) {
         return true;  //this is handled in the fileUpload.js in the Autoform extension instead.        
-    },
-    responseHeaders: function(responseCode, fileRef, versionRef, version) {
-        const headers = {};
-        switch (responseCode) {
-          case '206':
-            headers['Pragma'] = 'private';
-            headers['Trailer'] = 'expires';
-            headers['Transfer-Encoding'] = 'chunked';
-            break;
-          case '400':
-            headers['Cache-Control'] = 'no-cache';
-            break;
-          case '416':
-            headers['Content-Range'] = 'bytes */' + versionRef.size;
-        }
-        headers['Connection'] = 'keep-alive';
-        headers['Content-Type'] = versionRef.type || 'application/octet-stream';
-        headers['Accept-Ranges'] = 'bytes';
-        headers['Access-Control-Allow-Origin'] = '*';// <-- Custom header
-        return headers;
-      }
+    }
 });
 
 if (Meteor.isClient) {
@@ -72,7 +53,7 @@ if (Meteor.isServer) {
 
     Items.before.remove(function (userId, doc) {
         //console.log(doc);
-        if (doc.file) {
+        if (doc.files) {
             doc.files.forEach(function(x){
                 Files.remove(x);
                 //console.log('removed', x);

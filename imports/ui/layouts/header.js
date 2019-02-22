@@ -3,6 +3,10 @@ import './header.html';
 
 
 Template.App_ui_header.helpers({
+  notOnline: function() {
+    return Meteor.status().status != "connected";
+  },
+
   notifications: function() {
     var notificationSummary = [];
     var distinctNotifications = _.uniq(Notifications.find({}, {
@@ -101,9 +105,8 @@ Template.App_ui_header.helpers({
 
 Template.App_ui_header.events({
   'click .logout': function(event) {
-    Meteor.logout();
-    Session.clear();
-    FlowRouter.go("App.login");
+    Session.set('logout', true);
+    FlowRouter.go('App.logout');
   },
   'click .notification': function(event) {
     var id = event.currentTarget.getAttribute("data-id");

@@ -5,25 +5,30 @@
       </div>
       <div class="be-right-navbar">
         <ul class="nav navbar-nav float-right be-user-nav">
-          <li class="nav-item dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><img {{getMyAvatar 40}}><span class="user-name">{{getMyDisplayName}}</span></a>
+          <li class="nav-item dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><img
+                {{getMyAvatar 40}}><span class="user-name">{{getMyDisplayName}}</span></a>
             <div role="menu" class="dropdown-menu">
               <div class="user-info">
                 <div class="user-name">{{getMyDisplayName}}</div>
                 <div class="user-position online">{{_ "Available"}}</div>
               </div>
-              <a href="{{pathFor 'App.user.profile'}}" class="dropdown-item"><span class="icon mdi mdi-face"></span> {{_ "Profile"}}</a>
+              <a href="{{pathFor 'App.user.profile'}}" class="dropdown-item"><span class="icon mdi mdi-face"></span>
+                {{_ "Profile"}}</a>
               <a class="dropdown-item logout" href="#"><span class="icon mdi mdi-power"></span> {{_ "Logout"}}</a>
-                {{#if isCordova}}
-                <a href="#" class="dropdown-item exit-app"><span class="icon mdi mdi-close-circle"></span>{{_ "Exit"}}</a>
-                {{/if}}
+              {{#if isCordova}}
+              <a href="#" class="dropdown-item exit-app"><span class="icon mdi mdi-close-circle"></span>{{_ "Exit"}}</a>
+              {{/if}}
             </div>
           </li>
         </ul>
-        <div class="page-title"><span class="seravault-text-white">{{{getTypeIconFullHTML getTypeIcon}}}&nbsp;&nbsp;{{getPageTitle}}</span></div>
-        
+        <div class="page-title"><span class="seravault-text-white">{{{getTypeIconFullHTML
+            getTypeIcon}}}&nbsp;&nbsp;{{getPageTitle}}</span></div>
+
         <ul class="nav navbar-nav float-right be-icons-nav">
           {{#if searchIconVisible}}
-          <li class="nav-item dropdown search-dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="icon mdi mdi-search"></span>{{#if getSearchTerm}}<span class="indicator"></span>{{/if}}</a>
+          <li class="nav-item dropdown search-dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+              class="nav-link dropdown-toggle" data-step="3" data-intro="{{_ 'search'}}"><span class="icon mdi mdi-search"></span>{{#if getSearchTerm}}<span
+                class="indicator"></span>{{/if}}</a>
             <ul class="dropdown-menu be-notifications">
               <li>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
@@ -35,8 +40,9 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="icon mdi {{sortIcon}}"></span></a>
-            <ul class="dropdown-menu be-notifications">              
+          <li class="nav-item dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span
+                class="icon mdi {{sortIcon}}"></span></a>
+            <ul class="dropdown-menu be-notifications">
               <li>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                   <select class="sort-type form-control">
@@ -52,11 +58,15 @@
             </ul>
           </li>
           {{/if}}
-          <li class="nav-item dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="icon mdi mdi-notifications"></span>{{#if hasNotifications}}<span class="indicator"></span>{{/if}}</a>
+          <li class="nav-item dropdown"  data-step="6" data-intro="{{_ 'notificationIntro'}}" ><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span
+                class="icon mdi mdi-notifications"></span>{{#if hasNotifications}}<span class="indicator"></span>{{/if}}</a>
             <ul class="dropdown-menu be-notifications">
               <li>
-                <div class="title">{{_ "Notifications"}}<span class="badge badge-pill">{{notificationCount}}</span><div class="pull-top-right">
-                  <span class="icon mdi mdi-close close-all-notifications" data-toggle="tooltip" data-placement="top" title={{_ "closeAllNotifications"}} ></span></div></div>
+                <div class="title">{{_ "Notifications"}}<span class="badge badge-pill">{{notificationCount}}</span>
+                  <div class="pull-top-right">
+                    <span class="icon mdi mdi-close close-all-notifications" data-toggle="tooltip" data-placement="top"
+                      title={{_ "closeAllNotifications"}}></span></div>
+                </div>
                 <div class="list">
                   <div class="be-scroller">
                     <div class="content">
@@ -65,8 +75,10 @@
                         <li class="notification notification-read" data-id={{this.objectId}}><a href={{this.link}}>
                             <div class="image">{{#if this.fromId}}<img {{getAvatar this.fromId 40}}>{{/if}}</div>
                             <div class="notification-info">
-                              <div class="text"><span class="user-name"></span>{{{translate this}}}</div><span class="date">{{getCalendarDate this.createdAt}}</span>
-                            </div></a></li>
+                              <div class="text"><span class="user-name"></span>{{{translate this}}}</div><span class="date">{{getCalendarDate
+                                this.createdAt}}</span>
+                            </div>
+                          </a></li>
                         {{/each}}
                       </ul>
                     </div>
@@ -75,17 +87,26 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="icon mdi mdi-plus-square" style="font-size: 4em;"></span></a>
+          <li class="nav-item dropdown" data-step="1" data-intro="{{_ 'addNewItems'}}" data-position="bottom"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span
+                class="icon mdi mdi-plus-square" style="font-size: 4em;"></span></a>
             <div class="dropdown-menu be-notifications">
-              <a href="{{pathFor 'App.item.add' type='note'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'note'}}"></span>{{_ "NewNote"}}</a>
-              <a href="{{pathFor 'App.item.add' type='account'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'account'}}"></span>{{_ "NewPassword"}}</a>
-              <!--<a href="{{pathFor 'App.item.add' type='file'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'file'}}"></span>{{_ "NewFile"}}</a>-->
-              <a href="{{pathFor 'App.item.add' type='key'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'key'}}"></span>{{_ "NewKey"}}</a>
-              <a href="{{pathFor 'App.item.add' type='message'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'message'}}"></span>{{_ "NewMail"}}</a>
-              <a href="{{pathFor 'App.item.add' type='file'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'file'}}"></span>{{_ "NewFile"}}</a>              
-              <a href="{{pathFor 'App.item.add' type='folder'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'folder'}}"></span>{{_ "NewFolder"}}</a>
+              <a href="{{pathFor 'App.item.add' type='note'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'note'}}"></span>{{_
+                "NewNote"}}</a>
+              <a href="{{pathFor 'App.item.add' type='account'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'account'}}"></span>{{_
+                "NewPassword"}}</a>
+              <a href="{{pathFor 'App.item.add' type='credit_card'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'credit_card'}}"></span>{{_
+                "NewCreditCard"}}</a>
+              <a href="{{pathFor 'App.item.add' type='message'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'message'}}"></span>{{_
+                "NewMail"}}</a>
+              <a href="{{pathFor 'App.item.add' type='key'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'key'}}"></span>{{_
+                "NewKey"}}</a>
+              <a href="{{pathFor 'App.item.add' type='file'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'file'}}"></span>{{_
+                "NewFile"}}</a>
+              <a href="{{pathFor 'App.item.add' type='folder'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'folder'}}"></span>{{_
+                "NewFolder"}}</a>
               <div class="dropdown-divider"></div>
-              <a href="{{pathFor 'App.contacts.invite'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'contacts'}}"></span>{{_ "NewContact"}}</a>
+              <a href="{{pathFor 'App.contacts.invite'}}" class="dropdown-item"><span class="icon mdi {{getTypeIcon 'contacts'}}"></span>{{_
+                "NewContact"}}</a>
             </div>
           </li>
 
@@ -93,5 +114,16 @@
       </div>
     </div>
   </nav>
+  {{#if notOnline}}
+  <div role="alert" class="alert alert-warning alert-dismissible">
+    <button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true" class="mdi mdi-close"></span></button>
+    <div class="icon"><span class="mdi mdi-alert-triangle"></span></div>
+    <div class="message"><b>{{_ "notOnline"}}</b></div>
+  </div>
+  {{/if}}
+
+  <style>
+    
+  </style>
 
 </template>

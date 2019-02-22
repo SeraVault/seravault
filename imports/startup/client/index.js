@@ -27,3 +27,5 @@ import './startup.js';
 
 import './folder-share.js';
 
+//import './service-worker.js';
+

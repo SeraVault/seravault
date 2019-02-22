@@ -1,0 +1,23 @@
+<template name="App_contact_us">
+    <div class="card">
+        <div class="card-body">
+            <form>
+                <h1>{{_ "ContactUs"}}</h1>
+                <div class="form-group">
+                    <label for="inputName">{{_ "Name"}}</label>
+                    <input id="inputName" placeholder="Enter name" class="form-control" value={{getName}} disabled>
+                </div>
+                <div class="form-group pt-2">
+                    <label for="inputEmail">{{_ "Email"}}</label>
+                    <input id="inputEmail" type="email" placeholder="Enter email" class="form-control" value={{getEmail}}
+                        disabled>
+                </div>
+                <div class="form-group pt-2">
+                    <label for="inputMessage">{{_ "Message"}}</label>
+                    <textarea id="inputMessage" type="email" placeholder="Enter message" class="form-control"></textarea>
+                </div>
+            </form>
+            <button type="button" class="btn btn-space btn-primary send">Send</button>
+        </div>
+    </div>
+</template>

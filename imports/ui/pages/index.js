@@ -6,6 +6,7 @@ import './user/index.js';
 import './items/index.js'
 import './contacts/index.js';
 import './files/index.js';
+import './contact_us/index.js';
 import '../components/index.js';
 import './not-found/not-found.js';
 

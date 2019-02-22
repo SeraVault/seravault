@@ -2,6 +2,12 @@ import './login.html';
 Template.App_login.helpers({
   notCordova: function () {
     return !Meteor.isCordova;
+  },
+  showEnterCode: function () {
+    return twoFactor.isVerifying();
+  },
+  notShowEnterCode: function () {
+    return !twoFactor.isVerifying();
   }
 });
 
@@ -13,50 +19,46 @@ Template.App_login.events({
     e.preventDefault();
     var email = $('#email').val();
     var password = $('#password').val();
+    Session.set('tmp_password', password);
     $(".login").prop("disabled", true);
-    login = function () {
-      Meteor.loginWithPassword(email, password, function (error) {
-        if (error) {
-          if (error.error = 403) {
-            toastr.error(TAPi18n.__("WrongPassword"))
-            /*if (!Meteor.isCordova){
-              reCAPTCHA.reset("SeraVault");
-            }*/
-            $(".login").prop("disabled", false);
-            //Session.set('showSpinner', false);
-          }
-        } else {
-          //Meteor.call('setupSupport');
-          Sv.getUserKeys(password);
-          FlowRouter.go("App.all");
+    $("#email").prop("disabled", true);
+    $("#password").prop("disabled", true);
+    twoFactor.getAuthCode(email, password, error => {
+      if (error) {
+        if (error.error = 403) {
+          toastr.error(error.message)
+          /*if (!Meteor.isCordova){
+            reCAPTCHA.reset("SeraVault");
+          }*/
+          $(".login").prop("disabled", false);
+          $("#email").prop("disabled", false);
+          $("#password").prop("disabled", false);
+          //Session.set('showSpinner', false);
         }
-      });
-    };
-
-    login();
-
-    /*
-    if (Meteor.isCordova) {
-      login();
-    }
-    else
-    {
-      Meteor.call("testRecaptcha", reCAPTCHA.getResponse("SeraVault"), function(error, response) {
-        if (!response) {
-          toastr.error(TAPi18n.__("AreYouARobot"));
-          $(".login").prop("disabled",false);
-          return;
-        }
-        else
-        {
-          login();
-        }//else
-      }) //recaptcha test method call
-    }*/
+      }      
+    });    
+  },
+  'click .verifyCode': function (e) {
+    e.preventDefault();
+    var code = $('#verificationCode').val();
+    var password = $('#password').val();
+    twoFactor.verifyAndLogin(code, error => {
+      if (error) {
+        toastr.error(error.message);
+      }
+      //console.log(Meteor.user());
+      Meteor.user() && Sv.getUserKeys(Session.get('tmp_password'));
+      Session.set('tmp_password', '');
+      Meteor.call('userLogin');
+      redirect = Session.get('redirectAfterLogin');
+      if (redirect) {
+        FlowRouter.go(redirect);
+      } else {
+        FlowRouter.go("App.all");
+      }
+    });
+  },
+  'click .resetLogin': function () {
+    twoFactor.isVerifying(false);
   }
-
-})
-
-Template.App_login.onRendered(function () {
-
-})
+});

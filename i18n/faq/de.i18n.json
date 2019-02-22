@@ -1,0 +1,12 @@
+{
+	"faq_hacked1": "Was würde passieren, wenn Seravault jemals gehackt wurde?",
+	"faq_hacked_text1": "Ihre Daten werden mit einem mit Ihrem Kennwort verschlüsselten Schlüssel verschlüsselt. Seravault kennt Ihr Passwort nicht, so dass ein Hack niemals Ihr Passwort preisgibt. Da Ihre Daten mit Ihrem nicht mit einem Kennwort versehenen privaten Schlüssel verschlüsselt werden, ist Ihr Kennwort erforderlich, um Ihre Daten zu entschlüsseln. Kein Hacker wird Ihr Passwort jemals von Seravault erhalten.",
+	"faq_end-to-end": "Was ist End-to-End-Verschlüsselung?",
+	"faq_end-to-end_text": "Die End-to-End-Verschlüsselung soll verhindern, dass Daten gelesen oder geheim geändert werden, außer durch den tatsächlichen Absender und Empfänger. Die Nachrichten werden vom Absender verschlüsselt, der Dritte hat jedoch keine Möglichkeit, sie zu entschlüsseln, und speichert sie verschlüsselt. Der Empfänger ruft die verschlüsselten Daten ab und entschlüsselt sie selbst.",
+	"faq_lost-password": "Was ist, wenn ich mein Passwort verliere?",
+	"faq_lost-password_text": "Entschuldigung, Sie haben kein Glück. Seravault speichert Ihr Passwort nicht und kann es nicht ohne Verlust aller Daten zurücksetzen. Verlieren Sie niemals Ihr Passwort!",
+	"faq_sharing": "Wie funktioniert das Teilen? Braucht mein Partner meinen Schlüssel nicht?",
+	"faq_sharing_text": "Nein. Jedes Element in Seravault wird mit einem eindeutigen Schlüssel verschlüsselt. Dieser Schlüssel wird dann mit Ihrem öffentlichen Schlüssel verschlüsselt. Wenn Sie den Code teilen, wird der Schlüssel des Elements auch mit dem öffentlichen Schlüssel Ihres Partners verschlüsselt. Das Wichtigste dabei ist, dass das Element nur von denjenigen entschlüsselt werden kann, die die privaten Schlüssel besitzen ... Sie und die Personen, mit denen Sie geteilt haben.",
+	"faq_integration": "Seravault füllt meine Passwörter nicht in meinem Browser aus!",
+	"faq_integration_text": "Nein, das stimmt nicht. Seravault ist kein solches Werkzeug. Seravault legt Wert auf die Sicherheit Ihrer Daten. Da wir die Sicherheit des automatischen Ausfüllens nicht garantieren können, tun wir dies nicht. Seravault ist ein sicheres Schließfach, in dem Sie Informationen speichern, abrufen und mit minimalen Angriffsvektoren austauschen können."
+}

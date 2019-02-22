@@ -6,3 +6,4 @@ import './terms.html';
 import './setup.js';
 import './register.js';
 import './leave.js';
+import './logout.js';

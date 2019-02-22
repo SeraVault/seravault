@@ -7,6 +7,7 @@ import "./files.js";
 import "./encryption.js";
 import "./plans.js";
 import "./functions.js";
+//import "./blob.js";
 //import "./slingshot.js";
 
 //import "./account_config.js";

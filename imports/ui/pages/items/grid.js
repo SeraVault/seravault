@@ -30,30 +30,8 @@ Template.App_item_grid.events({
 });
 
 Template.App_item_grid.onRendered(function() {
-  // Masonary
-  /*function cardMasonry() {
-  setTimeout(function(){
-    $('#card-masonry').masonry({
-
-      itemSelector: '#card-masonry > div',
-      //isAnimated: true,
-    });
-    $('#card-masonry').css({"opacity":"1"});
-    }, 1000);};
-
-  $(window).resize(function(){
-    $('#card-masonry').masonry({
-      itemSelector: '#card-masonry > div',
-      //isAnimated: true,
-    });
-    cardMasonry();
-  });
-
-  $(function() {
-    $('#tabs').bind('click', function (e) {
-      $('#card-masonry').masonry({
-      itemSelector: '#card-masonry > div',});
-    });
-  });
-  cardMasonry();*/
+   if (Session.get('runIntroJs')) {
+    introJs().start();  
+    Session.set('runIntroJs', false);
+   }
 });

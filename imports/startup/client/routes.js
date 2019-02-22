@@ -1,16 +1,17 @@
 //public routes
 var exposed = FlowRouter.group({});
 
+
 /*Private routes*/
 var loggedIn = FlowRouter.group({
     triggersEnter: [
         function () {
             var route;
             if (!(Meteor.loggingIn() || Meteor.userId())) {
-                /*route = FlowRouter.current();
-                if (route.route.name !== 'login') {
+                route = FlowRouter.current();
+                if (route.route.name !== 'App.login') {
                     Session.set('redirectAfterLogin', route.path);
-                }*/
+                }
                 FlowRouter.go('App.login');
             }
         }
@@ -22,16 +23,128 @@ exposed.route('/', {
   name: 'App.home',
   action() {
     upgrade();
-    if (Meteor.loggingIn() || Meteor.userId()) {
+    /*if (Meteor.loggingIn() || Meteor.userId()) {
       FlowRouter.go('App.all');
-    }
+    }*/
+    var title = TAPi18n.__('metaTitle');
+    DocHead.setTitle(title);    
+    var metaInfo = {name: "description", content: TAPi18n.__('metaDescription')};
+    DocHead.addMeta(metaInfo);
+    var metaInfo = {name: "keywords", content: TAPi18n.__('metaKeywords')};
+    DocHead.addMeta(metaInfo);
+    
+    
     BlazeLayout.render('App_ui_home_container', { content: 'App_home' });
     $(window).scrollTop(0);
   },
 });
+
+/* CHANGE LANGUAGE */
+exposed.route('/fr', {
+  action() {
+    TAPi18n.setLanguage('fr');
+    var title = TAPi18n.__('metaTitle');
+    DocHead.setTitle(title);    
+    var metaInfo = {name: "description", content: TAPi18n.__('metaDescription')};
+    DocHead.addMeta(metaInfo);
+    var metaInfo = {name: "keywords", content: TAPi18n.__('metaKeywords')};
+    DocHead.addMeta(metaInfo);
+
+    BlazeLayout.render('App_ui_home_container', { content: 'App_home' });
+    $(window).scrollTop(0);
+  }
+});
+exposed.route('/en', {
+  action() {
+    TAPi18n.setLanguage('en');
+    var title = TAPi18n.__('metaTitle');
+    DocHead.setTitle(title);    
+    var metaInfo = {name: "description", content: TAPi18n.__('metaDescription')};
+    DocHead.addMeta(metaInfo);
+    var metaInfo = {name: "keywords", content: TAPi18n.__('metaKeywords')};
+    DocHead.addMeta(metaInfo);
+
+    BlazeLayout.render('App_ui_home_container', { content: 'App_home' });
+    $(window).scrollTop(0);
+  }
+});
+exposed.route('/es', {
+  action() {
+    TAPi18n.setLanguage('es');
+    var title = TAPi18n.__('metaTitle');
+    DocHead.setTitle(title);    
+    var metaInfo = {name: "description", content: TAPi18n.__('metaDescription')};
+    DocHead.addMeta(metaInfo);
+    var metaInfo = {name: "keywords", content: TAPi18n.__('metaKeywords')};
+    DocHead.addMeta(metaInfo);
+
+    BlazeLayout.render('App_ui_home_container', { content: 'App_home' });
+    $(window).scrollTop(0);
+  }
+});
+exposed.route('/zh-CN', {
+  action() {
+    TAPi18n.setLanguage('zh-CN');
+    var title = TAPi18n.__('metaTitle');
+    DocHead.setTitle(title);    
+    var metaInfo = {name: "description", content: TAPi18n.__('metaDescription')};
+    DocHead.addMeta(metaInfo);
+    var metaInfo = {name: "keywords", content: TAPi18n.__('metaKeywords')};
+    DocHead.addMeta(metaInfo);
+
+    BlazeLayout.render('App_ui_home_container', { content: 'App_home' });
+    $(window).scrollTop(0);
+  }
+});
+
+exposed.route('/da', {
+  action() {
+    TAPi18n.setLanguage('da');
+    var title = TAPi18n.__('metaTitle');
+    DocHead.setTitle(title);    
+    var metaInfo = {name: "description", content: TAPi18n.__('metaDescription')};
+    DocHead.addMeta(metaInfo);
+    var metaInfo = {name: "keywords", content: TAPi18n.__('metaKeywords')};
+    DocHead.addMeta(metaInfo);
+
+    BlazeLayout.render('App_ui_home_container', { content: 'App_home' });
+    $(window).scrollTop(0);
+  }
+});
+
+exposed.route('/nl', {
+  action() {
+    TAPi18n.setLanguage('nl');
+    var title = TAPi18n.__('metaTitle');
+    DocHead.setTitle(title);    
+    var metaInfo = {name: "description", content: TAPi18n.__('metaDescription')};
+    DocHead.addMeta(metaInfo);
+    var metaInfo = {name: "keywords", content: TAPi18n.__('metaKeywords')};
+    DocHead.addMeta(metaInfo);
+
+    BlazeLayout.render('App_ui_home_container', { content: 'App_home' });
+    $(window).scrollTop(0);
+  }
+});
+
+exposed.route('/de', {
+  action() {
+    TAPi18n.setLanguage('de');
+    var title = TAPi18n.__('metaTitle');
+    DocHead.setTitle(title);    
+    var metaInfo = {name: "description", content: TAPi18n.__('metaDescription')};
+    DocHead.addMeta(metaInfo);
+    var metaInfo = {name: "keywords", content: TAPi18n.__('metaKeywords')};
+    DocHead.addMeta(metaInfo);
+
+    BlazeLayout.render('App_ui_home_container', { content: 'App_home' });
+    $(window).scrollTop(0);
+  }
+});
+
 exposed.route('/leave', {
   name: 'App.leave',
-  action() {
+  action() {    
     BlazeLayout.render('App_ui_home_container', { content: 'App_leave' });
   },
 });
@@ -39,6 +152,15 @@ exposed.route('/login', {
   name: 'App.login',
   action() {
     upgrade();
+    var title = TAPi18n.__('metaTitleLogin');
+    DocHead.setTitle(title);    
+    var metaInfo = {name: "description", content: TAPi18n.__('metaDescriptionLogin')};
+    DocHead.addMeta(metaInfo);
+    var metaInfo = {name: "keywords", content: TAPi18n.__('metaKeywords')};
+    DocHead.addMeta(metaInfo);
+    if (Meteor.userId()) {
+      FlowRouter.go('App.items');
+    }
     BlazeLayout.render('App_ui_home_container', { content: 'App_login'});
     $(window).scrollTop(0);
   }
@@ -46,6 +168,15 @@ exposed.route('/login', {
 exposed.route('/register', {
   name: 'App.register',
   action() {
+    var title = TAPi18n.__('metaTitleRegister');
+    DocHead.setTitle(title);    
+    var metaInfo = {name: "description", content: TAPi18n.__('metaDescriptionRegister')};
+    DocHead.addMeta(metaInfo);
+    var metaInfo = {name: "keywords", content: TAPi18n.__('metaKeywords')};
+    DocHead.addMeta(metaInfo);
+    if (Meteor.userId()) {
+      FlowRouter.go('App.items');
+    }
     BlazeLayout.render('App_ui_home_container', { content: 'App_register'});
     $(window).scrollTop(0);
   }
@@ -63,6 +194,39 @@ exposed.route('/privacy-policy', {
     BlazeLayout.render('App_ui_home_container', {content: 'App_privacy'});
   }
 });
+
+exposed.route('/security-tips', {
+  name: 'App.blog',
+  action() {
+    var title = TAPi18n.__('metaTitleSecurityTips');
+    DocHead.setTitle(title);    
+    var metaInfo = {name: "description", content: TAPi18n.__('metaDescription')};
+    DocHead.addMeta(metaInfo);
+    var metaInfo = {name: "keywords", content: TAPi18n.__('metaKeywords')};
+    DocHead.addMeta(metaInfo);
+
+    BlazeLayout.render('App_ui_home_container', {content: 'App_blog_list'});
+  }
+})
+
+exposed.route('/security-tips/:canonical_name', {
+  name: 'App.blog-post',
+  action() {    
+    console.log(FlowRouter.getParam('canonical_name'));
+    Tracker.autorun(function() {
+      var post = BlogPosts && BlogPosts.findOne({canonical_name: FlowRouter.getParam('canonical_name')});
+      if (post) {
+        var title = "Seravault: " + post.title;
+        DocHead.setTitle(title);    
+        var metaInfo = {name: "description", content: post.meta_description};
+        DocHead.addMeta(metaInfo);
+        var metaInfo = {name: "keywords", content: post.meta_keywords};
+        DocHead.addMeta(metaInfo);
+      }
+      BlazeLayout.render('App_ui_home_container', {content: 'App_blog_post'});
+    });
+  }
+})
 
 loggedIn.route('/app/dashboard', {
   name: 'App.dashboard',
@@ -92,11 +256,12 @@ loggedIn.route('/app/help', {
   },
 });
 
-loggedIn.route('/logout', {
+exposed.route('/logout', {
   name: 'App.logout',
   action() {
+    Session.clear();
     Meteor.logout();
-    BlazeLayout.render('App_ui_blank', { content: 'App_login'})
+    BlazeLayout.render('App_ui_home_container', { content: 'App_user_logout'})
   }
 });
 
@@ -207,7 +372,7 @@ loggedIn.route('/app/home', {
     Session.set('pageTitle', TAPi18n.__("AllItems"));
     Session.set('searchIconVisible', true);
     BlazeLayout.render('App_ui_main', { content: 'App_item_grid'});
-    $(window).scrollTop(0);
+    $(window).scrollTop(0);    
   },
 });
 
@@ -219,6 +384,20 @@ loggedIn.route('/app/notes', {
     Session.set("typeIcon", "note");
     Session.set("search_folder", null);
     Session.set('pageTitle', TAPi18n.__("Notes"));
+    Session.set('searchIconVisible', true);
+    BlazeLayout.render('App_ui_main', { content: 'App_item_grid'});
+    $(window).scrollTop(0);
+  },
+});
+
+loggedIn.route('/app/credit_cards', {
+  name: 'App.credit_cards',
+  action() {
+    upgrade();
+    Session.set("type", "credit_card")
+    Session.set("typeIcon", "credit_card");
+    Session.set("search_folder", null);
+    Session.set('pageTitle', TAPi18n.__("CreditCards"));
     Session.set('searchIconVisible', true);
     BlazeLayout.render('App_ui_main', { content: 'App_item_grid'});
     $(window).scrollTop(0);
@@ -395,6 +574,35 @@ loggedIn.route('/admin/utils', {
   name: 'Admin.utils',
   action() {
     BlazeLayout.render('App_ui_main', {content: 'ui_admin_utils'});
+  }
+});
+
+loggedIn.route('/app/contact_us', {
+  name: 'App.contact_us',
+  action() {
+    BlazeLayout.render('App_ui_main', {content: 'App_contact_us'});
+  }
+});
+
+
+loggedIn.route('/admin/posts', {
+  name: 'Admin.posts',
+  action() {
+    BlazeLayout.render('App_ui_main', {content: 'blog_admin_list'});
+  }
+});
+
+loggedIn.route('/admin/posts/add', {
+  name: 'Admin.posts.add',
+  action() {
+    BlazeLayout.render('App_ui_main', {content: 'blog_admin_add'});
+  }
+})
+
+loggedIn.route('/admin/posts/edit/:id', {
+  name: 'Admin.posts.edit',
+  action() {
+    BlazeLayout.render('App_ui_main', {content: 'blog_admin_edit'});
   }
 })
 

@@ -16,7 +16,7 @@ Template.App_items_add.helpers({
 var hooksObject = {
   before: {
     insert: function(doc) {
-      var count = Items.find().count({$ne: {help: true}});
+      var count = Items.find({owner_id: Meteor.userId()}).count({$ne: {help: true}});
       if (count > plan().items) {
         toastr.error(TAPi18n.__("exceededLimit"));
         return false;

@@ -6,6 +6,9 @@ Template.App_ui_leftbar.helpers({
       type: 'folder'
     })
   },
+  showAdmin: function() {
+    return Roles.userIsInRole(joesUserId, ['wheel', 'blogAdmin'], 'global-group');
+  }
 })
 
 Template.App_ui_leftbar.events({
@@ -58,5 +61,11 @@ Template.App_ui_leftbar.events({
   'dragover .open-folders': function(e, t) {
     e.preventDefault();    
     $('.folder-parent').addClass('open');
+  },
+  'click .contact_us': function() {
+    FlowRouter.go('App.contact_us');
+  },
+  'click .replay-intro': function () {
+    introJs().start();
   }
 });

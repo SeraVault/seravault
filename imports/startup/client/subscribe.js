@@ -6,6 +6,8 @@ Tracker.autorun(function () {
     }
 });
 
+Meteor.subscribe('BlogPosts');
+
 /*if (Meteor.user()) {
     Meteor.setInterval(function() {
         if (DDP._allSubscriptionsReady()) {

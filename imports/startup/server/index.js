@@ -12,3 +12,8 @@ import './file-remover.js';
 //import './slingshot.js';
 //import './testing.js'; //TODO REMOVE BEFORE GOING TO PRODUCTION
 import './utils.js';
+import './security.js';
+import './twoFactor.js';
+import './policy.js';
+import './reports.js';
+import './sitemap.js';

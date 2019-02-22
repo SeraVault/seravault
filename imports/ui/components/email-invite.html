@@ -1,0 +1,31 @@
+<template name="emailInvite">
+  <div id="accordion2" class="accordion accordion-color">
+    <div class="card card-full-primary">
+      <div id="headingTwo2" class="card-header">
+        <button data-toggle="collapse" data-target="#collapseInvite" aria-expanded="false" aria-controls="collapseInvite"
+          class="btn collapsed inviteSection"><i class="icon mdi mdi-chevron-right" height="50px;"></i> {{_ "InviteContact"}}</button>
+      </div>
+      <div id="collapseInvite" aria-labelledby="headingTwo2" data-parent="#accordion2" class="collapse" style="">
+        <div class="card">
+          <div class="card-body">
+            <form id="email-invite" data-parsley-validate="" novalidate="" style="margin-top: 0px;">
+              <div class="form-group">
+                <label for="inputEmail">{{_ "inviteContactEmail"}}</label>
+                <input id="inputEmail" type="email" placeholder="Enter email" class="form-control" data-parsley-type="email" data-parsley-required-message={{_ "fieldRequired"}}
+                  data-parsley-type-message={{_ "invalidEmail"}} required>
+              </div>
+              <div class="form-group">
+                <label for="inputMessage">{{_ "inviteCustomMessage"}}</label>
+                <textarea id="inputMessage" class="form-control"></textarea>
+              </div>
+              <p class="text-right">
+                <button class="btn btn-lg btn-space btn-primary sendInvite">{{_ "Send"}}</button>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>

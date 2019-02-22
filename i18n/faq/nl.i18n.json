@@ -1,0 +1,12 @@
+{
+	"faq_hacked1": "Wat zou er gebeuren als Seravault ooit werd gehackt?",
+	"faq_hacked_text1": "Uw gegevens worden gecodeerd met behulp van een sleutel die is gecodeerd met uw wachtwoord. Seravault kent uw wachtwoord niet, dus een hack onthult nooit uw wachtwoord. Omdat uw gegevens worden versleuteld met behulp van uw wachtwoord-nonce-gecodeerde privésleutel, is uw wachtwoord nodig om uw gegevens te decoderen. Geen enkele hacker zal ooit uw wachtwoord van Seravault ontvangen.",
+	"faq_end-to-end": "Wat is end-to-end-codering?",
+	"faq_end-to-end_text": "End-to-end-codering is bedoeld om te voorkomen dat gegevens worden gelezen of stiekem worden gewijzigd, anders dan door de echte afzender en ontvanger (s). De berichten worden gecodeerd door de afzender, maar de derde partij heeft geen middelen om ze te decoderen en slaat ze versleuteld op. De ontvanger haalt de gecodeerde gegevens op en decodeert deze zelf.",
+	"faq_lost-password": "Wat als ik mijn wachtwoord verlies?",
+	"faq_lost-password_text": "Sorry, je hebt pech. Seravault slaat uw wachtwoord niet op en kan het niet resetten zonder verlies van alle gegevens. Pas op dat je je wachtwoord nooit verliest!",
+	"faq_sharing": "Hoe werkt delen? Zou mijn partner mijn sleutel niet nodig hebben?",
+	"faq_sharing_text": "Nee. Elk item in Seravault is gecodeerd met een unieke sleutel. Die sleutel wordt dan versleuteld met uw publieke sleutel. Als u deelt, wordt de sleutel van het item ook gecodeerd met de openbare sleutel van uw partner. Het belangrijkste om op te merken is dat het item alleen kan worden gedecodeerd door degenen die de privésleutels bezitten ... jij en de mensen waarmee je hebt gedeeld.",
+	"faq_integration": "Seravault vult mijn wachtwoorden niet in mijn browser in!",
+	"faq_integration_text": "Nee, dat doet het niet. Seravault is niet zo'n tool. Seravault waardeert de beveiliging van uw informatie en omdat we de veiligheid van automatisch aanvullen niet kunnen garanderen, doen we het niet. Seravault is bedoeld als een veilige lock-box waarin u informatie kunt opslaan, ophalen en delen ... met minimale aanvalsvectoren."
+}

@@ -1,0 +1,12 @@
+{
+	"faq_hacked1": "¿Qué pasaría si Seravault fuera hackeado?",
+	"faq_hacked_text1": "Sus datos se cifran con una clave que se cifra con su contraseña. Seravault no conoce su contraseña, por lo que un pirateo nunca revelará su contraseña. Debido a que sus datos están encriptados usando su clave privada con contraseña cifrada con nonce, su contraseña es necesaria para descifrar sus datos. Ningún hacker obtendrá su contraseña de Seravault.",
+	"faq_end-to-end": "¿Qué es el cifrado de extremo a extremo?",
+	"faq_end-to-end_text": "El cifrado de extremo a extremo está destinado a evitar que los datos se lean o modifiquen en secreto, a excepción del verdadero remitente y destinatario (s). El remitente encripta los mensajes, pero el tercero no tiene medios para descifrarlos y los almacena encriptados. El destinatario recupera los datos encriptados y los descifra ellos mismos.",
+	"faq_lost-password": "¿Qué pasa si pierdo mi contraseña?",
+	"faq_lost-password_text": "Lo siento, estás fuera de suerte. Seravault no almacena su contraseña y no puede restablecerla sin perder todos los datos. ¡Ten cuidado de no perder nunca tu contraseña!",
+	"faq_sharing": "¿Cómo funciona el compartir? ¿No necesitaría mi pareja mi llave?",
+	"faq_sharing_text": "No. Cada elemento en Seravault se cifra con una clave única. Esa clave es luego encriptada usando su clave pública. Si comparte, la clave del elemento también se cifra con la clave pública de sus socios. Lo importante a tener en cuenta aquí es que el elemento solo puede ser descifrado por aquellos que poseen las claves privadas ... usted y las personas con las que compartió.",
+	"faq_integration": "¡Seravault no llena mis contraseñas en mi navegador!",
+	"faq_integration_text": "No, no lo hace. Seravault no es ese tipo de herramienta. Seravault valora la seguridad de su información y, como no podemos garantizar la seguridad del llenado automático, no lo hacemos. Seravault está destinado a ser una caja de seguridad segura donde puede almacenar, buscar y compartir información ... con un mínimo de vectores de ataque."
+}

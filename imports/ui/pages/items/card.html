@@ -1,7 +1,8 @@
 <template name="App_items_card">
 
   <div class="card-sv card card-border-color" style="border-top-color: {{getTypeColor type}};" data-id={{_id}}>
-    <div class="card-header card-header-divider {{#if equals type 'folder'}}open-folder{{else}}open-or-drag{{/if}}" data-id={{_id}} draggable="true">
+    <div class="card-header card-header-divider {{#if equals type 'folder'}}open-folder{{else}}open-or-drag{{/if}}"
+      data-id={{_id}} draggable="true">
       <div class="row">
         <div class="col-md-10">
           <strong>{{title}}</strong>
@@ -27,8 +28,10 @@
 
           <div class="label">{{_ "Password"}}</div>
           <div class="value">{{passwordToggle _id}}&nbsp;&nbsp;&nbsp;
-            <button class='btn btn-default passwordToggle' data-toggle="tooltip" data-placement="top" title={{_ "togglePassword"}} data-id="{{_id}}"><span class="icon mdi {{passwordToggleState _id}}"></span></button>
-            <button class='btn btn-default copyPassword' data-clipboard-text='{{password}}' data-clipboard-action='copy' data-toggle="tooltip" data-placement="top" title={{_ "copyToClipboard"}}><span class="icon mdi mdi-copy"></span></button>
+            <button class='btn btn-default passwordToggle' data-toggle="tooltip" data-placement="top" title={{_ "togglePassword"}}
+              data-id="{{_id}}"><span class="icon mdi {{passwordToggleState _id}}"></span></button>
+            <button class='btn btn-default copyPassword' data-clipboard-text='{{password}}' data-clipboard-action='copy'
+              data-toggle="tooltip" data-placement="top" title={{_ "copyToClipboard"}}><span class="icon mdi mdi-copy"></span></button>
           </div>
           {{#if url}}
           <div class="label">URL</div>
@@ -41,7 +44,9 @@
           {{/if}}
 
           {{#if equals type 'folder'}}
-          <div class="text-center open-folder" data-id="{{_id}}"><div class="font-xl">{{numOfChildren}}</div><span> {{_ "items"}}</span></div>
+          <div class="text-center open-folder" data-id="{{_id}}">
+            <div class="font-xl">{{numOfChildren}}</div><span> {{_ "items"}}</span>
+          </div>
           {{/if}}
 
 
@@ -55,8 +60,41 @@
           </div>
           <div class="value">
             {{keyToggle _id}}&nbsp;&nbsp;&nbsp;
-            <button class='btn pmd-ripple-effect btn-default pmd-btn-raised notification-trigger btn-vsm keyToggle' data-toggle="tooltip" data-placement="top" title={{_ "togglePassword"}} data-id="{{_id}}"><span class="icon mdi {{keyToggleState _id}}"></span></button>
-            <button class='btn pmd-ripple-effect btn-default pmd-btn-raised notification-trigger btn-vsm copyPassword' data-clipboard-text='{{private_key}}' data-clipboard-action='copy' data-toggle="tooltip" data-placement="top" title={{_ "copyToClipboard"}}><span class="icon mdi mdi-copy"></span></button>
+            <button class='btn pmd-ripple-effect btn-default pmd-btn-raised notification-trigger btn-vsm keyToggle'
+              data-toggle="tooltip" data-placement="top" title={{_ "togglePassword"}} data-id="{{_id}}"><span class="icon mdi {{keyToggleState _id}}"></span></button>
+            <button class='btn pmd-ripple-effect btn-default pmd-btn-raised notification-trigger btn-vsm copyPassword'
+              data-clipboard-text='{{private_key}}' data-clipboard-action='copy' data-toggle="tooltip" data-placement="top"
+              title={{_ "copyToClipboard"}}><span class="icon mdi mdi-copy"></span></button>
+          </div>
+          {{/if}}
+
+          {{#if equals type 'credit_card'}}
+          <div class="label">
+            {{_ "CardHolderName"}}
+          </div>
+          <div class="value">{{cardholder_name}}</div>
+          <div class="label">
+            {{_ "CardType"}}
+          </div>
+          <div class="value">{{card_type}}</div>
+          <div class="label">
+            {{_ "CardNumber"}}
+          </div>
+          <div class="value">{{card_number}}</div>
+          <div class="label">
+            {{_ "Expiration"}}
+          </div>
+          <div class="value">{{card_month}} / {{card_year}}</div>
+          <div class="label">
+            {{_ "SecurityCode"}}
+          </div>
+          <div class="value">
+            {{securityCodeToggle _id}}&nbsp;&nbsp;&nbsp;
+            <button class='btn pmd-ripple-effect btn-default pmd-btn-raised notification-trigger btn-vsm securityCodeToggle'
+              data-toggle="tooltip" data-placement="top" title={{_ "togglePassword"}} data-id="{{_id}}"><span class="icon mdi {{securityCodeToggleState _id}}"></span></button>
+            <button class='btn pmd-ripple-effect btn-default pmd-btn-raised notification-trigger btn-vsm copyPassword'
+              data-clipboard-text='{{security_code}}' data-clipboard-action='copy' data-toggle="tooltip" data-placement="top"
+              title={{_ "copyToClipboard"}}><span class="icon mdi mdi-copy"></span></button>
           </div>
           {{/if}}
 
@@ -67,10 +105,10 @@
           {{/if}}
 
           {{#if files}}
-            <p>{{{notes}}}</p>
-            {{#each files}}
-              <a href='#' class="download" data-id={{this}}>{{getFileName this}} ({{getFileSize this}})</a><br>
-            {{/each}}
+          <p>{{{notes}}}</p>
+          {{#each files}}
+          <a href='#' class="download" data-id={{this}}>{{getFileName this}} ({{getFileSize this}})</a><br>
+          {{/each}}
           {{/if}}
 
           {{#if equals type 'help'}}
@@ -83,24 +121,33 @@
     </div>
     <div class="card-footer">
 
-{{#if equals type "folder"}}
-  <a class="btn btn-secondary open-folder"  data-id="{{_id}}"><i class="icon mdi mdi-open-in-new"></i></a>
-{{else}}
-  <a href="{{pathFor 'App.item.view' id=_id}}" class="btn btn-secondary"><i class="icon mdi mdi-open-in-new"></i></a>
-{{/if}}
-<a href="{{pathFor 'App.edit' id=_id}}" class="btn btn-secondary"><i class="icon mdi mdi-edit"></i></a>
+      {{#if equals type "folder"}}
+      <a class="btn btn-secondary open-folder" data-id="{{_id}}"><i class="icon mdi mdi-open-in-new"></i></a>
+      {{else}}
+      <a href="{{pathFor 'App.item.view' id=_id}}" class="btn btn-secondary"><i class="icon mdi mdi-open-in-new"></i></a>
+      {{/if}}
+      <a href="{{pathFor 'App.edit' id=_id}}" class="btn btn-secondary"><i class="icon mdi mdi-edit"></i></a>
 
-<a href="#" data-id={{_id}} data-type={{type}}  class="btn btn-secondary delete"><i class="icon mdi mdi-delete"></i></a>
-{{#if notDocOwner owner_id}}<span class="badge btn-success btn-vsm open-user text-center" data-id={{owner_id}}>{{docOwner owner_id}}</span>{{/if}}
+      <a href="#" data-id={{_id}} data-type={{type}} class="btn btn-secondary delete"><i class="icon mdi mdi-delete"></i></a>
+      {{#if notDocOwner owner_id}}<span class="badge btn-success btn-vsm open-user text-center" data-id={{owner_id}}>{{docOwner
+        owner_id}}</span>{{/if}}
 
-{{#if isDocOwner owner_id}}
-  {{#if isShared _id}}
-    <span class="btn btn-primary share" data-id={{_id}}><i class="icon mdi mdi-share"></i></span>
-  {{else}}
-    <span class="btn btn-secondary share" data-id={{_id}}><i class="icon mdi mdi-share"></i></span>
-  {{/if}}
-{{/if}}
+      {{#if isDocOwner owner_id}}
+      {{#if isShared _id}}
+      <span class="btn btn-primary share" data-id={{_id}}><i class="icon mdi mdi-share"></i></span>
+      {{else}}
+      <span class="btn btn-secondary share" data-id={{_id}}><i class="icon mdi mdi-share"></i></span>
+      {{/if}}
+      {{/if}}
     </div>
   </div>
+  <style>
+    .label {
+      font-size: 70%;      
+    }
+    .value {
+      padding-bottom: 6px;
+    }
+  </style>
 
 </template>

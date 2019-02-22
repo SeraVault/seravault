@@ -1,110 +1,178 @@
 <template name="App_home">
-  <div class="jumbotron seravault-gradient-background">
-    <h1 class="display-3 text-center" style="color: #e9ecef;">{{_ "Slogan"}}</h1>     
-    {{#if isNotCordova}}  
-    <div class="text-center"><img src="/img/seravault_logo.svg" alt="SeraVault" class="home-page-logo" style="width:50%;"></div>
-    {{/if}}
-    <hr class="style-2">
-    <h1 class="text-center" style="color: #e9ecef;">{{{_ "tagLine2"}}}</h1>    
+  <div class="jumbotron seravault-gradient-background" style="padding: 6rem 0rem 1rem; border-radius: 0;">
+    <div class="container">
+      <!--<img src="https://www.seravault.com/img/seravault_logo.svg"><img>-->
+      {{#if isPhoneSize}}
+      <h1 class="display-6 text-center" style="color: #e9ecef;font-weight: bolder;text-align: justify; text-justify: inter-word;">{{_ "tagLine"}}</h1>
+      {{else}}
+      <h1 class="display-2 text-center" style="color: #e9ecef;font-weight: bolder;text-align: justify; text-justify: inter-word; font-stretch: ultra-expanded;">{{_ "tagLine"}}</h1>
+      {{/if}}
+      <hr>
+      <!--<div class="text-center">
+        <img src="/img/seravault_logo.svg" alt="SeraVault" class="home-page-logo">
+      </div>-->
+      {{#if isPhoneSize}}
+      <h2 class="display-5 text-center" style="color: #e9ecef;">{{{_ "tagLine2"}}}</h2>
+      {{else}}
+      <h2 class="display-6 text-center" style="color: #e9ecef;">{{{_ "tagLine2"}}}</h2>
+      {{/if}}
+      <hr>
+      <h3 class="display-6 text-center" style="color: #e9ecef;">{{{_ "tagline3"}}}</h3>
+    </div>
   </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-border-color home-card sv-background-color">
+          <div class="card-header card-header-divider">
+            <h1 class="display-5 text-center">{{_ "examplesOfSave"}}</h1>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card card-border-color home-card" style="border-top-color: {{getTypeColor 'account'}};">
+          <div class="card-header card-header-divider">
+            <h2><span class="icon mdi {{getTypeIcon 'account'}}"></span> &nbsp;&nbsp;{{_ "Accounts"}}</h2>
+          </div>
+          <div class="card-body" style="height: 145px;">
+            <h4>{{_ "passwordExplanation"}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card card-border-color home-card" style="border-top-color: {{getTypeColor 'note'}};">
+          <div class="card-header card-header-divider">
+            <h2><span class="icon mdi {{getTypeIcon 'note'}}"></span> &nbsp;&nbsp;{{_ "Notes"}}</h2>
+          </div>
+          <div class="card-body" style="height: 145px;">
+            <h4>{{_ "notesExplanation"}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card card-border-color home-card" style="border-top-color: {{getTypeColor 'credit_card'}};">
+          <div class="card-header card-header-divider">
+            <h2><span class="icon mdi {{getTypeIcon 'credit_card'}}"></span> &nbsp;&nbsp;{{_ "CreditCards"}}</h2>
+          </div>
+          <div class="card-body" style="height: 145px;">
+            <h4>{{_ "creditCardExplanation"}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card card-border-color home-card" style="border-top-color: {{getTypeColor 'file'}};">
+          <div class="card-header card-header-divider">
+            <h2><span class="icon mdi {{getTypeIcon 'file'}}"></span> &nbsp;&nbsp;{{_ "Files"}}</h2>
+          </div>
+          <div class="card-body" style="height: 145px;">
+            <h4>{{_ "filesExplanation"}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card card-border-color home-card" style="border-top-color: {{getTypeColor 'message'}};">
+          <div class="card-header card-header-divider">
+            <h2><span class="icon mdi {{getTypeIcon 'message'}}"></span> &nbsp;&nbsp;{{_ "Mail"}}</h2>
+          </div>
+          <div class="card-body" style="height: 145px;">
+            <h4>{{_ "messagingExplanation"}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4">
+        <div class="card card-border-color home-card" style="border-top-color: {{getTypeColor 'key'}};">
+          <div class="card-header card-header-divider">
+            <h2><span class="icon mdi {{getTypeIcon 'key'}}"></span> &nbsp;&nbsp;{{_ "Keys"}}</h2>
+          </div>
+          <div class="card-body" style="height: 145px;">
+            <h4>{{_ "keysExplanation"}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-12">
+        <div class="card card-border-color home-card" style="border-top-color: {{getTypeColor 'folder'}};">
+          <div class="card-header card-header-divider">
+            <h2><span class="icon mdi {{getTypeIcon 'folder'}}"></span> &nbsp;&nbsp;{{_ "Folders"}}</h2>
+          </div>
+          <div class="card-body">
+            <h4>{{_ "foldersExplanation"}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-12">
+        <div class="card card-border-color home-card" style="border-top-color: {{getTypeColor 'sharing'}};">
+          <div class="card-header card-header-divider">
+            <h2><span class="icon mdi {{getTypeIcon 'sharing'}}"></span> &nbsp;&nbsp;{{_ "Sharing"}}</h2>
+          </div>
+          <div class="card-body">
+            <h4>{{_ "sharingExplanation"}}</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-12">
+        <div class="card card-border-color home-card" style="border-top-color: {{getTypeColor 'multifactor'}};">
+          <div class="card-header card-header-divider">
+            <h2><span class="icon mdi mdi-lock"></span> &nbsp;&nbsp;{{_ "multiFactor"}}</h2>
+          </div>
+          <div class="card-body">
+            <h4>{{_ "multiFactorAuthentication"}}</h4>
+            <h4>{{_ "multiFactorAuthenticationMore"}}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
 
   <div class="section light-bg" id="features">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-4">
-          <div class="card card-border-color" style="border-top-color: {{getTypeColor 'account'}};">
-            <div class="card-header card-header-divider">
-              <h2><span class="icon mdi {{getTypeIcon 'account'}}"></span> {{_ "Accounts"}}</h2>
-            </div>
-            <div class="card-body">
-              <h4>{{_ "passwordExplanation"}}</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4">
-          <div class="card card-border-color" style="border-top-color: {{getTypeColor 'note'}};">
-            <div class="card-header card-header-divider">
-              <h2><span class="icon mdi {{getTypeIcon 'note'}}"></span> {{_ "Notes"}}</h2>
-            </div>
-            <div class="card-body">
-              <h4>{{_ "notesExplanation"}}</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4">
-          <div class="card card-border-color" style="border-top-color: {{getTypeColor 'key'}};">
-            <div class="card-header card-header-divider">
-              <h2><span class="icon mdi {{getTypeIcon 'key'}}"></span> {{_ "Keys"}}</h2>
-            </div>
-            <div class="card-body">
-              <h4>{{_ "keysExplanation"}}</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4">
-            <div class="card card-border-color" style="border-top-color: {{getTypeColor 'key'}};">
-              <div class="card-header card-header-divider">
-                <h2><span class="icon mdi {{getTypeIcon 'file'}}"></span> {{_ "Files"}}</h2>
-              </div>
-              <div class="card-body">
-                <h4>{{_ "filesExplanation"}}</h4>
-              </div>
-            </div>
-          </div>
-        <div class="col-12 col-lg-4">
-          <div class="card card-border-color" style="border-top-color: {{getTypeColor 'message'}};">
-            <div class="card-header card-header-divider">
-              <h2><span class="icon mdi {{getTypeIcon 'message'}}"></span> {{_ "Mail"}}</h2>
-            </div>
-            <div class="card-body">
-              <h4>{{_ "messagingExplanation"}}</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-lg-4">
-          <div class="card card-border-color" style="border-top-color: {{getTypeColor 'folder'}};">
-            <div class="card-header card-header-divider">
-              <h2><span class="icon mdi {{getTypeIcon 'folder'}}"></span> {{_ "Folders"}}</h2>
-            </div>
-            <div class="card-body">
-              <h4>{{_ "foldersExplanation"}}</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-lg-12">
-          <div class="card card-border-color card-border-color-success">
-            <div class="card-header card-header-divider">
-              <h2><span class="icon mdi {{getTypeIcon 'sharing'}}"></span> {{_ "Sharing"}}</h2>
-            </div>
-            <div class="card-body">
-              <h4>{{_ "sharingExplanation"}}</h4>
-            </div>
-          </div>
+    <div class="jumbotron lock-background" style="background-color: #1F2F46; padding: 4em;">
+      <div class="lock-background">
+        <div class="container">
+          <h1 class="display-5 text-center" style="color:#fff;"><b>{{{_"explanationh1"}}}</b></h1>
+          <hr>
+          <h2 class="display-7 text-center" style="color: #e9ecef;">{{{_ "explanation"}}}</h2>
+          <br />
+          <h2 class="display-7 text-center" style="color: #e9ecef;">{{{_ "explanation1"}}}</h2>
+          <br />
+          <h2 class="display-7 text-center" style="color: #e9ecef;">{{{_ "explanation2"}}}</h2>
+          <br />
+          <h2 class="display-8 text-center" style="color: #e9ecef;">{{{_ "explanation3"}}}</h2>
         </div>
       </div>
     </div>
-  </div>
-  <!-- // end .section -->
-  <div class="section light-bg" style="padding-bottom: 20px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6">
-              <a href={{pathFor 'App.register'}} class="btn btn-huge btn-success btn-xl btn-block">{{_ "Register"}}</a>               
-          </div>
-          <div class="col-md-6">
-              <a href={{pathFor 'App.login'}} class="btn btn-huge btn-success btn-xl btn-block">{{_ "Login"}}</a>
-            </div>
-        </div>
-      </div>
   </div>
 
-  <div class="jumbotron" style="background-color: #1F2F46;">
-    <div class="text-center" style="padding-left:15%; padding-right:15%">
-      <h3 style="color: #e9ecef;">{{{_ "explanation"}}}</h3>
-      <br/>
-      <h3 style="color: #e9ecef;">{{{_ "explanation2"}}}</h3>
+  {{#if currentUser}}
+  <div class="section light-bg" style="padding-bottom: 20px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <a href={{pathFor 'App.all'}} class="btn btn-huge btn-success btn-xl btn-block">{{_ "BackToMyItems"}}</a>
+        </div>
+      </div>
     </div>
   </div>
+  {{else}}
+  <div class="section light-bg" style="padding-bottom: 20px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <a href={{pathFor 'App.register'}} class="btn btn-huge btn-success btn-xl btn-block">{{_ "Register"}}</a>
+        </div>
+        <div class="col-md-6">
+          <a href={{pathFor 'App.login'}} class="btn btn-huge btn-success btn-xl btn-block">{{_ "Login"}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+
+
+
 
 
   <div class="section" id="technology">
@@ -115,41 +183,41 @@
           <h4 class="text-center">{{_ "encryptionLibrariesExplanation"}}
             <a href="https://en.wikipedia.org/wiki/Curve25519" target="_blank" class="color-off-white">x25519</a>-
             <a href="https://en.wikipedia.org/wiki/Salsa20" target="_blank" class="color-off-white">xsalsa20</a>-
-            <a href="https://en.wikipedia.org/wiki/Poly1305" target="_blank" class="color-off-white">poly1305</a> <br/>
-            {{_ "libraryAudited"}} <a href="https://cure53.de/tweetnacl.pdf" target="_blank" class="color-off-white">{{_ "exceptionallySecure"}}.</a>
+            <a href="https://en.wikipedia.org/wiki/Poly1305" target="_blank" class="color-off-white">poly1305</a> <br />
           </h4>
+          <h4 class="text-center">{{_ "OpenSource"}} - {{_"OpenSourceIntro"}} <a href="https://github.com/seravault">GitHub</a></h4>
         </div>
       </div>
     </div>
-
   </div>
-  <hr/>
-
-
-  <div class="jumbotron seravault-gradient-background">
-    <h2 class="display-3 text-center" style="color: #e9ecef;">{{_ "OpenSource"}}</h2>     
-    <h3 class="text-center" style="color: #e9ecef;padding-left:15%; padding-right:15%">{{_ "OpenSourceIntro"}} 
-        The project uses the <a href="https://www.meteor.com/">Meteor</a> {{_ "Platform"}}.  {{_ "SourceAvailableAt"}} <a href="https://github.com/SeraVault/seravault">https://github.com/SeraVault/seravault</a>.</h3> 
-    <h3 class="text-center" style="color: #e9ecef;">{{_ "Thanks"}}</h3>
-    <h2 class="text-center" style="font-family: 'Mr Bedfort', cursive;color: #e9ecef;font-size: 4em;">Donnie Guedry</h2>    
-  </div>
-
-
+  <hr>
   <!-- // end .section -->
+   
   <footer class="text-center">
-    <a href="" class="m-2 terms">{{_ "TERMS"}}</a>
-    <a href="" class="m-2 privacy">{{_ "PRIVACY"}}</a>
-    <a href="" class="m-2 contact">{{_ "CONTACT_US"}}</a>
-    <p class="mb-2"><small>{{{getCopyright}}}</small></p>
+    <a href="https://github.com/SeraVault/seravault" class="m-2">{{_ "OPEN_SOURCE"}}</a>
+    
+    <hr>
+    <p class="mb-1">{{{getCopyright}}}</p>
   </footer>
-{{> App_terms}}
-{{> App_privacy}}
-{{> App_contact}}
-<style>
-  hr.style-2 {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-}
-</style>
+  <style>
+    hr.style-2 {
+      border: 0;
+      height: 1px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
+
+    h1,
+    .h1,
+    h2,
+    .h2,
+    h3,
+    .h3 {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    body {
+      background-color: #fff;
+    }
+  </style>
 </template>

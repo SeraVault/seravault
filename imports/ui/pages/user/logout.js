@@ -1,6 +1,6 @@
 import './logout.html';
 
-Template.App_logout.onRendered(function() {
+Template.App_user_logout.onRendered(function() {
+  Session.clear();
   Meteor.logout();
-  FlowRouter.go('App.home');
 })

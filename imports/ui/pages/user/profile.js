@@ -193,5 +193,5 @@ Template.App_user_profile.events({
   },
   'click .data-usage': function() {
     FlowRouter.go('/app/profile#plans');
-  }
+  }  
 })

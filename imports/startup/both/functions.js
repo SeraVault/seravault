@@ -1,7 +1,7 @@
 getDiskUsage = function () {
     var diskTotal = 0;
     var planDisk = plan() && plan().disk;
-    Files.find().forEach(function (data) {
+    Files.find({userId: Meteor.userId()}).forEach(function (data) {
         diskTotal = diskTotal + data.size;
     });
     return diskTotal;

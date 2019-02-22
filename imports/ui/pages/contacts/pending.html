@@ -1,46 +1,50 @@
 <template name="contactsPending">
+  <div class="card">
+    <div class="card-body">
 
-  {{#if noInvites}}
-    <h1>{{_ "AcceptInvitations"}}</h1>
-    <h2 class="font-xl-gray">{{_ "NoInvitations"}}</h2><br>
-    <p>{{{_ "noPendingInvitesText0" sharingCode}}}</p>
-    <p>{{{_ "noPendingInvitesText1"}}}</p>
-    <br>
-    <p>{{{_ "noPendingInvitesText2"}}}</p>
-  {{else}}
+      {{#if noInvites}}
+      <h1>{{_ "AcceptInvitations"}}</h1>
+      <h2 class="font-xl-gray">{{_ "NoInvitations"}}</h2><br>
+      <p>{{{_ "noPendingInvitesText0" sharingCode}}}</p>
+      <p>{{{_ "noPendingInvitesText1"}}}</p>
+      <br>
+      <p>{{{_ "noPendingInvitesText2"}}}</p>
+      {{else}}
 
-  <div class="pmd-card pmd-z-depth-1">
-    <div class="pmd-card-title">
+      <div class="pmd-card pmd-z-depth-1">
+        <div class="pmd-card-title">
           <h1>{{_ "AcceptInvitations"}}</h1>
-    </div>
-    <div class="pmd-card-body">
-      <div class="table-responsive">
-        <table cellspacing="0" cellpadding="0" class="table pmd-table" id="table-pending-invitations">
-          <thead>
-            <tr>
-              <th>{{_ "From"}}</th>
-              <th>{{_ "Note"}}</th>
-              <th>{{_ "CreatedDate"}}</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each invitations}}
-            <tr>
-              <td data-title="From">{{this.fromUserDisplayName}}</td>
-              <td data-title="Note">{{this.note}}</td>
-              <td data-title="When">{{formatDate this.createdAt}}</td>
-              <td class="pull-right">
-                <button class="btn btn-primary accept-invite" data-id={{this._id}}>{{_ "Accept"}}</button>
-                <button class="btn btn-default delete-invite" data-id={{this._id}}>{{_ "Reject"}}</button>
-              </td>
-            </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      </div>
-    </div>
+        </div>
+        <div class="pmd-card-body">
+          <div class="table-responsive">
+            <table cellspacing="0" cellpadding="0" class="table pmd-table" id="table-pending-invitations">
+              <thead>
+                <tr>
+                  <th>{{_ "From"}}</th>
+                  <th>{{_ "Note"}}</th>
+                  <th>{{_ "CreatedDate"}}</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each invitations}}
+                <tr>
+                  <td data-title="From">{{this.fromUserDisplayName}}</td>
+                  <td data-title="Note">{{this.note}}</td>
+                  <td data-title="When">{{formatDate this.createdAt}}</td>
+                  <td class="pull-right">
+                    <button class="btn btn-primary accept-invite" data-id={{this._id}}>{{_ "Accept"}}</button>
+                    <button class="btn btn-default delete-invite" data-id={{this._id}}>{{_ "Reject"}}</button>
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
 
+      </div>
+      {{/if}}
+    </div>
   </div>
-    {{/if}}
 </template>

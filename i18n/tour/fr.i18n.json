@@ -1,0 +1,9 @@
+{
+	"addNewItems": "Ajoutez de nouveaux éléments ici. Les articles seront cryptés sur votre appareil, puis sauvegardés.",
+	"browseByType": "Parcourez vos informations déchiffrées par type d'élément",
+	"search": "Rechercher vos informations déchiffrées",
+	"inviteContacts": "Inviter des contacts afin de pouvoir partager des informations en toute sécurité avec eux",
+	"manageProfile": "Modifier les paramètres de votre compte, y compris la langue, le nom public, le mot de passe, l'adresse électronique ou le forfait",
+	"notificationIntro": "Les mises à jour des éléments partagés ou les demandes de partage seront affichées ici dans la zone de notification.",
+	"ReplayIntro": "Rejouer Intro"
+}

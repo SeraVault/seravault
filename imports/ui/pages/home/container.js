@@ -7,6 +7,9 @@ Template.App_ui_home_container.helpers({
   },
   isCordova: function() {
     return Meteor.isCordova;
+  },
+  hasPosts: function() {
+    return BlogPosts.find().count() > 0;
   }
 });
 
@@ -36,6 +39,14 @@ Template.App_ui_home_container.events({
     if (Meteor.isCordova) {
       navigator.app.exitApp();
     }
+  }, 
+  'click .close-navbar': function() {
+    $('.navbar-toggler').addClass('collapsed');
+    $('.navbar-toggler').attr("aria-expanded","false");
+    $('.navbar-collapse').removeClass('show');
+  },
+  'click .logout': function() {
+    Meteor.logout();
   }
 })
 

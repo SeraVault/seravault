@@ -72,7 +72,8 @@ AutoForm.hooks({
 });
 
 Template.App_items_edit.events({
-  'click .send': function() {
+  'click .send': function(e, t) {
+    e.preventDefault();
     Session.set('var-send', true);
     $('editItems').submit();
   },

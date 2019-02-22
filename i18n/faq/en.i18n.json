@@ -1,0 +1,12 @@
+{
+	"faq_hacked1": "What would happen if Seravault ever got hacked?",
+  "faq_hacked_text1": "Your data is encrypted using a key that's encrypted using your password. Seravault does not know your password so a hack will never reveal your password.  Since your data is encrypted using your password-nonce-encrypted private key your password is needed in order to decrypt your data. No hacker will ever get your password from Seravault.",
+  "faq_end-to-end": "What is end-to-end encryption?",
+  "faq_end-to-end_text": "End-to-end encryption is intended to prevent data being read or secretly modified, other than by the true sender and recipient(s). The messages are encrypted by the sender but the third party does not have a means to decrypt them, and stores them encrypted. The recipient retrieves the encrypted data and decrypts it themselves.",
+  "faq_lost-password": "What if I lose my password?",
+  "faq_lost-password_text": "Sorry, you are out of luck.  Seravault does not store your password and cannot reset it without loss of all data.  Be careful to never lose your password!",
+  "faq_sharing": "How does sharing work?  Wouldn't my partner need my key?",
+  "faq_sharing_text": "No. Each item in Seravault is encrypted using a unique key.  That key is then encrypted using your public key.  If you share, the item's key is also encrypted with your partners public key.  The important thing to note here is that the item can only be decrypted by those who posess the private keys... you and the people with which you shared.",
+  "faq_integration": "Seravault doesn't fill out my passwords in my browser!",
+  "faq_integration_text": "No, it doesn't.  Seravault is not that kind of tool.  Seravault values the security of your information and since we can't guarantee the security of auto-fill, we don't do it.  Seravault is meant to be a secure lock-box where you can store, fetch and share information... with minimum attack vectors."
+}

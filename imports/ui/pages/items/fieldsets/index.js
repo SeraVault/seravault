@@ -7,3 +7,4 @@ import './message.js';
 import './message_update.js';
 import './help.js';
 import './help_update.js';
+import './credit_cards.js';

@@ -1,11 +1,12 @@
 Meteor.publish('Items', function() {  
-  if (Roles.userIsInRole(this.userId, ['wheel'], 'global-group')) {
+  /*if (Roles.userIsInRole(this.userId, ['wheel'], 'global-group')) {
     return Items.find();
-  } else {
+  } else {*/
     if (this.userId) {
       return Items.find({'keys.userId': this.userId});
     }
-  }});
+  /*}*/
+});
 
 Meteor.publish('Chats', function() {
   if (this.userId) {
@@ -67,6 +68,14 @@ Meteor.publish('Folders', function() {
 Meteor.publish('ShareRequests', function() {
   if (this.userId) {
     return ShareRequests.find({$or: [{fromUserId: this.userId}, {toUserId: this.userId}]});
+  }
+});
+
+Meteor.publish('BlogPosts', function() {
+  if (Roles.userIsInRole(this.userId, ['blogAuthor'], 'global-group')) {
+    return BlogPosts.find(); }
+  else {
+    return BlogPosts.find({status: 'active'});
   }
 });
 

@@ -1,0 +1,28 @@
+<template name="blog_admin_list">
+  <h1>Blog Posts</h1>
+  <a href={{pathFor 'Admin.posts.add'}} class="btn btn-primary">Add</a>
+  <table cellspacing="0" cellpadding="0" class="table pmd-table" id="table-pending-invitations">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Created</th>
+          <th>Summary</th>
+          <th></th>          
+        </tr>
+      </thead>
+      <tbody>
+        {{#each posts}}
+        <tr>
+          <td data-title="Title">{{title}}</td>
+          <td data-title="Created">{{createdAt}}</td>
+          <td data-title="Summary">{{summary}}</td>
+          <td class="pull-right">
+            <a href={{pathFor 'Admin.posts.edit' id=_id}} class="btn btn-primary edit-post" data-id={{_id}}>{{_ "Edit"}}</a>
+            <button class="btn btn-default delete-post" data-id={{_id}}>{{_ "Delete"}}</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  
+</template>

@@ -1,0 +1,21 @@
+{
+    "name": "SVTest",
+    "icons": [
+      {
+        "src": "/icons/android_xxxhdpi.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/icons/logo-512-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#1F2F46",
+    "display": "standalone",    
+    "theme_color": "#1F2F46",
+    "description": "Encrypt, store, access and share your digital valuables",
+    "scope": "/"
+  }

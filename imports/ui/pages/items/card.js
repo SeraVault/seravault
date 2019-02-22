@@ -27,6 +27,12 @@ Template.App_items_card.helpers({
     }
     return '*********';
   },
+  securityCodeToggle: function(id) {
+    if (Session.get('showSecurityCode_' + id)) {
+      return this.security_code;
+    }
+    return '***';
+  },
   passwordToggleState: function(id) {
     if (Session.get('showPassword_' + id)) {
         return 'mdi-eye';
@@ -39,6 +45,12 @@ Template.App_items_card.helpers({
     }
     return 'mdi-eye-off';
   },
+  securityCodeToggleState: function(id) {
+    if (Session.get('showSecurityCode_' + id)) {
+        return 'mdi-eye';
+    }
+    return 'mdi-eye-off';
+  },  
   cardParams: function() {
     getCardParams(this.type)
   },
@@ -78,6 +90,10 @@ Template.App_items_card.events({
     var id = event.currentTarget.getAttribute("data-id");
     Session.set('showKey_' + id, !Session.get('showKey_' + id));
   },
+  'click .securityCodeToggle': function(event, template) {
+    var id = event.currentTarget.getAttribute("data-id");
+    Session.set('showSecurityCode_' + id, !Session.get('showSecurityCode_' + id));
+  },  
   'click .open': function(event) {
     Session.set('item_id', event.currentTarget.getAttribute("data-id"));    
     FlowRouter.go('App.item.view', {id: event.currentTarget.getAttribute("data-id")});

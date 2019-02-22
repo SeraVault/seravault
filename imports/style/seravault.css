@@ -1,5 +1,5 @@
 .main-content {
-  //background: #395781;
+  /*background: #395781;*/
   padding-left: 17px;
   padding-right: 17px;
   padding-top: 8px; //padding-bottom: 10px;
@@ -18,6 +18,15 @@
 
 .avatar-round {
   border-radius: 50%;
+}
+
+.accordion {
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+.accordion .card-header button {
+  padding: .4em;
 }
 
 .navbar-light .navbar-toggler-icon {
@@ -39,12 +48,12 @@
   color: #FFF;
 }
 
-.seravault-text-white: {
+.seravault-text-white {
   color: #FFF;
 }
 
-.leftmenu-indent: {
-  padding-left: 20px;  !important
+.leftmenu-indent {
+  padding-left: 20px !important;
 }
 
 .splash-description {
@@ -57,7 +66,7 @@
   line-height: 60px;
   height: 60px;
   width: 300px;
-  background-image: url(/img/seravault_logo.svg);
+  background-image: url("https://www.seravault.com/img/seravault_logo.svg");
   background-repeat: no-repeat;
   background-position: 5px center;
   padding: 0 5px;
@@ -74,7 +83,7 @@
   line-height: 60px;
   height: 60px;
   width: 300px;
-  background-image: url(/img/seravault_logo.svg);
+  background-image: url("https://www.seravault.com/img/seravault_logo.svg");
   background-repeat: no-repeat;
   background-position: 5px center;
   padding: 0 5px;
@@ -97,10 +106,10 @@
 
 .home-page-logo {
   display: block;
-  width: 70%;
+  width: 100%;
   height: auto;
-  margin-top: 0;
-  margin-bottom: 40px;
+  margin-top: -20px;
+  margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -176,6 +185,7 @@
 .btn-huge {
   padding-top: 20px;
   padding-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 24px;
 }
 
@@ -218,4 +228,62 @@
 
 .toast {
   opacity: 1 !important;
+}
+
+.sv-logo-image {
+  display: block;
+  background: url("https://www.seravault.com/img/seravault_logo.svg") no-repeat;
+  /*width: 180px;
+  height: 236px; 
+  padding-left: */        
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.lock-background {
+  background-image: url('data:image/svg+xml;utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 0;
+  margin-top: -25px;
+  padding-top: 18px;
+  text-align: center;
+}
+
+
+.note-editor.note-frame.fullscreen {
+  background: #1F2F46;
+}
+
+.introjs-helperNumberLayer {
+  top: 12px; 
+  left: 98%;     
+}
+.introjs-helperLayer {
+  background-color: rgba(255,255,255,.5);
+}
+.splash-container {
+  max-width: 700px;
+}
+
+.blog-item-icon {
+  font-size: 50px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.sv-background-color {
+  color: #1F2F46;
+  border-top-color:  #1F2F46;
+}
+
+.home-card {
+  background-color: #eff7ff;
+  border-radius: 10px;
 }

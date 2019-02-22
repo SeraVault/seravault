@@ -1,0 +1,9 @@
+{
+  "addNewItems": "Add new items here.  Items will be encrypted on your device then saved.",
+  "browseByType": "Browse your decrypted information by type of item",
+  "search": "Search your decrypted information",
+  "inviteContacts": "Invite contacts so that you can securely share information with them",
+  "manageProfile": "Change your account settings including language, public name, password, email address or plan",
+  "notificationIntro": "Updates to shared items or requests for sharing will be displayed here in the notifications area",
+  "ReplayIntro": "Replay Intro"
+}

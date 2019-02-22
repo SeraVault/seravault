@@ -1,8 +1,9 @@
 import './main.html';
+
 //import { Session } from 'inspector';
 
 Template.App_ui_main.helpers({
-
+  
 });
 
 Template.App_ui_main.onCreated(function () {
@@ -623,5 +624,5 @@ Template.App_ui_main.onRendered(function () {
 
   $('.modal').on('hidden.bs.modal', function () {
     $("html").removeClass('be-modal-open');
-  });  
+  });
 })

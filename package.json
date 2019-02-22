@@ -6,17 +6,26 @@
     "test": "meteor test --once --driver-package meteortesting:mocha"
   },
   "dependencies": {
-    "@babel/runtime": "^7.0.0-beta.44",
-    "bcrypt": "^1.0.3",
+    "@babel/runtime": "^7.1.2",
+    "bcrypt": "^3.0.4",
+    "bootstrap-tour": "^0.12.0",
     "concat-stream": "^1.6.2",
+    "credit-card-type": "^8.1.0",
+    "deep-extend": "^0.6.0",
+    "file-saver": "^2.0.0",
     "filereader-stream": "^1.0.0",
+    "hawk": "^7.0.10",
+    "hoek": "^6.1.2",
     "i18n-translate-json": "^1.0.0",
+    "invert-color": "^2.0.0",
     "jquery": "^3.3.1",
     "meteor-accounts-t9n": "^2.3.0",
     "meteor-node-stubs": "^0.3.2",
     "nacl-blob": "^2.0.0",
+    "parsleyjs": "^2.8.1",
     "simpl-schema": "^1.4.2",
-    "strict-password-generator": "^1.1.1"
+    "strict-password-generator": "^1.1.2",
+    "tunnel-agent": "^0.6.0"
   },
   "devDependencies": {
     "chai": "^4.1.2"

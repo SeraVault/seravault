@@ -1,0 +1,9 @@
+{
+	"addNewItems": "Tilføj nye varer her. Varer bliver krypteret på din enhed, og derefter gemmes.",
+	"browseByType": "Gennemse dine dekrypterede oplysninger efter type vare",
+	"search": "Søg i din dekrypterede information",
+	"inviteContacts": "Inviter kontakter, så du sikkert kan dele oplysninger med dem",
+	"manageProfile": "Skift dine kontoindstillinger, herunder sprog, offentligt navn, adgangskode, e-mail-adresse eller plan",
+	"notificationIntro": "Opdateringer til delte varer eller anmodninger om deling vises her i meddelelsesområdet",
+	"ReplayIntro": "Replay Intro"
+}
