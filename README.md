@@ -11,7 +11,7 @@ Seravault is an application that allows users to encrypt confidential imformatio
 Navigate to the root folder and run the following command
 
 <pre>
-meteor npm install --save @babel/runtime jquery simpl-schema meteor-node-stubs meteor-accounts-t9n parsleyjs filereader-stream concat-stream
+meteor npm install
 </pre>
 
 <h3>Configure</h3>
