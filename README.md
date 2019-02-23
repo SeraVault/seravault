@@ -15,18 +15,19 @@ meteor npm install
 </pre>
 
 <h3>Configure</h3>
-Seravault allows encrypted file uploads.  You'll need to define the location where the files are saved.  See <i>settings.json</i>.
+Seravault allows encrypted file uploads.  You'll need to define the location where these files are saved.  See <b><i>settings.json</i></b>.
 
-Seravault also needs an smtp server in order for two factor authentication to work.  See <i>run.sh</i>
+Seravault also needs an smtp server in order for two factor authentication to work.  See <b><i>run.sh</i></b>
 
 <h2>Run App</h2>
-Navigate to the root folder and run the following command
+Navigate to the root folder and run the following command (Linux/Unix)
 <pre>./run.sh</pre>
 If you get an error that you don't have permission, you'll need to make this shell script executable:
 <pre>chmod +x run.sh</pre>
+The run.sh script contains Linux/Unix commands.  For Windows, you'll need to build your own batch file using the bash script as an example.
 
 Navigate to http://localhost:3000 in your web browser to use the app.
 
 -------------------------------
-<h2>See it in action:</h2>
+<h2>See it in action</h2>
 https://www.seravault.com
