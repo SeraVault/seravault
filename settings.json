@@ -1,0 +1,16 @@
+{
+  "public": {
+    "staleSessionInactivityTimeout": 11100000,
+    "staleSessionHeartbeatInterval": 100000,
+    "staleSessionPurgeInterval": 60000,
+    "staleSessionActivityEvents": "mousemove click keydown",
+    "persistent_session": {
+      "default_method": "authenticated"
+    }
+  },  
+  "private": {    
+    "fileStoragePath": "/mnt/s3fs/",
+    "emailContactUs": "youremail@yourdomain.com",
+    "emailNotificationAddress": "from@yourdomain.com"
+  } 
+} 
