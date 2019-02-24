@@ -1,6 +1,6 @@
 
 <h2>About</h2>
-Seravault is an application that allows users to encrypt confidential imformation and securely share with others.  The app implements end-to-end encryption so that the man-in-the-middle attack vector is eliminated.
+Seravault is a progressive web app that allows users to encrypt confidential information and securely share with others.  The app implements end-to-end encryption so that the man-in-the-middle attack vector is eliminated.  Multi-factor authentication is implemented to decrease the probability that an attacker can impersonate a user to gain access.  Find out more at https://www.seravault.com
 
 
 <h2>Installation</h2>
@@ -26,7 +26,10 @@ If you get an error that you don't have permission, you'll need to make this she
 <pre>chmod +x run.sh</pre>
 The run.sh script contains Linux/Unix commands.  For Windows, you'll need to build your own batch file using the bash script as an example.
 
+<h2>Open App</h2>
 Navigate to http://localhost:3000 in your web browser to use the app.
+
+To change the port, you can always edit the <i>run.sh</i> script. See https://docs.meteor.com/commandline.html for more info.
 
 -------------------------------
 <h2>See it in action</h2>
