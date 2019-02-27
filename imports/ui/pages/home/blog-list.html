@@ -1,18 +1,2 @@
 <template name="App_blog_list">
-  <div class="container" style="padding: 6rem 0rem 1rem;">
-    <h1>{{_ "Blog"}}</h1>
-    {{#each posts}}
-    <div class="card card-border-color sv-background-color">
-      <div class="card-header">
-        <strong>{{title}}</strong><span class="icon mdi mdi-file-text blog-item-icon"></span>
-      </div>
-      <div class="card-body">
-        {{summary}}
-      </div>
-      <div class="card-footer">
-        <a href={{pathFor 'App.blog-post' canonical_name=canonical_name}}>Read more...</a>
-      </div>
-    </div>
-    {{/each}}
-  </div>
 </template>
