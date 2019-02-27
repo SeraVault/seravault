@@ -49,7 +49,7 @@ plan = function() {
   }
   if (AppPlans.hasAccess('free')) {
     return {
-      items: 20,
+      items: 50,
       disk: 52428800 //50mb
     };
   }

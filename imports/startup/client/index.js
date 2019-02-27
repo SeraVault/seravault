@@ -10,7 +10,7 @@ import './language.js';
 
 import './routes.js';
 import '../../style/index.js';
-import '../../ui/autoform/index.js';
+//import '../../ui/autoform/index.js';
 import '../../ui/layouts/index.js';
 import '../../ui/pages/index.js';
 

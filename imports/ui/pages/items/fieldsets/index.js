@@ -8,3 +8,4 @@ import './message_update.js';
 import './help.js';
 import './help_update.js';
 import './credit_cards.js';
+import './password_modal.js';

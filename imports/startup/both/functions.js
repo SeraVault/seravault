@@ -14,3 +14,13 @@ enoughDisk = function (size) {
     var enoughSpace = (planDisk >= diskUsagePlusFile);    
     return enoughSpace;
 };
+
+getItemUsage = function() {
+    return Items.find({owner_id: Meteor.userId()}).count();
+    //var planTotal = plan() && plan().items;
+}
+
+enoughItems = function() {
+    var planItems = plan() && plan().items;
+    return (getItemUsage <= planItems);
+}
