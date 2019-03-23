@@ -1,7 +1,13 @@
 
 <h2>About</h2>
-Seravault is a progressive web app that allows users to encrypt confidential information and securely share with others.  The app implements end-to-end encryption so that the man-in-the-middle attack vector is eliminated.  Multi-factor authentication is implemented to decrease the probability that an attacker can impersonate a user to gain access.  Find out more at https://www.seravault.com
+Seravault is a progressive web app that allows users to encrypt confidential information localy (end-to-end encryption) and then sends the encrypted information to a "vault" (MongoDB). The user can use any device from anywhere to access their encrypted information (responsive design, cache cleaning).  Seravault also allows users to securely share encrypted information with 3rd parties.  This is accomplished by encrypting the document's key with the user's public keys.  Only the user's that possess the private key can decrypt the document.
 
+
+Multi-factor authentication also implemented to decrease the probability that an attacker can impersonate a user to gain access.
+
+Seravault is built on the Meteor platform which uses MongoDB.
+
+It's easily installed and immediately usable.
 
 <h2>Installation</h2>
 <h3>Install Meteor</h3>
